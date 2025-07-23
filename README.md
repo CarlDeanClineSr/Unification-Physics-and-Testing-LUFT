@@ -1,3 +1,18 @@
+## 🧪 Simulations & Data-Driven Tests
+
+LUFT’s power is in the math, the data, and the ideas. You’ll find:
+
+- Jupyter Notebooks for lattice simulations and UFT equation modeling
+- Python scripts for analyzing SDR recordings and field resonance
+- Data folders with lightning, hydrogen line, and 7,468 Hz events
+
+Want to contribute? Try running a simulation, analyzing a dataset, or proposing a hardware build—even if it’s “junk,” every step counts!
+
+## 🤝 Get Involved
+
+- Help design the first physical Clister Coil—collaborate via GitHub Discussions!
+- Share your SDR tests, antenna builds, or simulation results
+- Join the journey to unify physics—one small step at a time
 # Reality-based-Space-and-its-functionality
 This is an investigation into the mechanisms that make up our reality. 
 # LUFT — Lattice Unified Field Theory  
