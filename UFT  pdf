@@ -1,0 +1,1993 @@
+Outline RG LGT Fermions
+ Introduction to Lattice Field Theory
+ Sourendu Gupta
+ TIFR
+ Asian School on Lattice Field Theory
+ TIFR, Mumbai, India
+ March 12, 13, 2011
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ The path integral and the renormalization group
+ The path integral formulation
+ Field theory, divergences, renormalization
+ Example 1: the central limit theorem
+ Example 2: the Ising model
+ Example 3: scalar field theory
+ Bosons on the lattice
+ References
+ Lattice formulation of gauge theories
+ Wilson’s formulation of lattice gauge theory
+ Confinement in strong coupling
+ Gauge theories at high temperature
+ Monte Carlo Simulations
+ The continuum limit
+ Lattice Fermions
+ Putting fermions on the lattice
+ Fermion matrix inversions
+ References
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Outline
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ The path integral and the renormalization group
+ The path integral formulation
+ Field theory, divergences, renormalization
+ Example 1: the central limit theorem
+ Example 2: the Ising model
+ Example 3: scalar field theory
+ Bosons on the lattice
+ References
+ Lattice formulation of gauge theories
+ Wilson’s formulation of lattice gauge theory
+ Confinement in strong coupling
+ Gauge theories at high temperature
+ Monte Carlo Simulations
+ The continuum limit
+ Lattice Fermions
+ Putting fermions on the lattice
+ Fermion matrix inversions
+ References
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ The quantum problem
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ A quantum problem with Hamiltonian H is completely specified if
+ one can compute the unitary evolution operator
+ U(0,T) = ei RT
+ 0 dtH(t)
+ There are path integral representations for this operator. All our
+ study starts from here.
+ The finite temperature quantum problem is completely understood
+ if one computes the partition function
+ Z(β) = Tre−Rβ
+ 0 dtH(t),
+ which is formally the same problem in Euclidean time. The same
+ path integral suffices to solve this problem.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ A path integral is matrix multiplication
+ Define δt = T/Nt The amplitude for a quantum state |x0 at
+ initial time 0 to evolve to the state |xN at the final time T can be
+ written as
+ αN|U(0,T)|α0 =
+ αN|U((N −1)δt,T)|ψN−1
+ ψ1,ψ2, ,ψN−1
+ ψN−1|U(δt,(N −1)δt)|ψN−2
+ ψ1|U(δt,0)|α0 ,
+ where we have inserted complete sets of states at the end of each
+ interval. The notation also distinguishes between the states at the
+ end points and the basis states |ψi at the intermediate points.
+ This sum over all intermediate states is called the path integral.
+ The choice of the basis states |ψi is up to us, and we can choose
+ them at our convenience.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ A path integral
+ t
+ t
+ 0 1
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ t
+ i
+ t
+ i+1
+ t
+ N
+ δt
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Apathintegral
+ 0
+ ψ
+ ψ i
+ i+1
+ N
+ ψ
+ ψ1
+ ψ
+ t t t t t 0 1 i i+1 N
+ δt
+ SG IntroductiontoLGT
+Outline RG LGT Fermions Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Apathintegral
+ t t t t t 0 1 i i+1 N
+ δt
+ SG IntroductiontoLGT
+Outline RG LGT Fermions
+ A path integral
+ t
+ t
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ t
+ t
+ 0 1 i i+1 N
+ t
+ δt
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ A path integral
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ t
+ t
+ t
+ t
+ 0 1 i i+1 N
+ t
+ δt
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Choosing the basis states
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ If the basis states |ψi are eigenstates of the Hamiltonian then
+ ψi+1|U(ti + δt,ti)|ψi = e−iEiδt/ℏδψi+1,ψi
+ .
+ The result looks trivial because the hard task of diagonalizing the
+ Hamiltonian is already done. In any other basis the path integral is
+ non-trivial.
+ By choosing position eigenstates as the basis, Feynman [1] showed
+ that the infinitesimal evolution operator for a single particle is
+ given by
+ x| U(0,δt)|y = eiδtS(x,y),
+ where S(x,y) is the classical action for a trajectory of the particle
+ which goes from the point x at time 0 to the point y at time δt.
+ For a spin problem one may use angular momentum coherent
+ states, for fermions Grassman coherent states. The results are
+ similar.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Going to the diagonal basis
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ If V is unitary and V†HV is diagonal, then
+ 
+ e−iE0T
+ U(0,T) = V†
+ 
+ 0
+ 0
+ e−iE1T 
+
+ V.
+ The sum over intermediate states is diagonal, and the Vs act only
+ on the initial and final states to give
+ αN|U(0,T)|α0
+ = (α0
+ N)∗α0
+ 0e−iE0T + (α1
+ N)∗α1
+ 0e−iE1T + 
+−→ (α0
+ N)∗α0
+ 0e−E0T, (Euclidean time t → −it),
+ when E1 > E0 and T(E1 −E0) ≫ 1. This gives the lowest
+ eigenvalue of H.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Introducing the transfer matrix
+ The Euclidean problem over one lattice step in time is now phrased
+ in terms of the transfer matrix —
+ e−E0δt
+ T(δt) = U(0,−iδt) = V†
+ 
+ 
+ 
+ 
+ 0
+ 0
+ 0
+ e−E1δT
+ 0
+ 0
+ 0
+ e−E2δT 
+
+ 
+ 
+ V.
+ Since T = exp[−δtH], the two operators commute, and have the
+ same eigenvectors. If the eigenvalues of T are called λi, then the
+ eigenvalues of the Hamiltonian are Ei = −(logλi)/δt.
+ If we are to recover a finite Ei when δt → 0, then logλ must go to
+ zero. The correlation length in the problem is ξ = 1/logλ, so
+ this must diverge in order to give finite Ei. Therefore the
+ continuum limit corresponds to a critical point.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Algorithm for computing energies
+ For a new formulation of quantum mechanics we have a trivial
+ algorithm for computing the energy. It exploits the simple fact that
+ given a randomly chosen unit vector |φ, the matrix element
+ φ|Tn|φ tends to λn
+ 0 as n → ∞.
+ 1. Choose a source. At one time slice construct a random linear
+ combination of basis states: |φ0 .
+ 2. Choose a path configuration, i.e., a random |φj on each
+ lattice site (jδt) with probability given by T. Construct a
+ measurement of the correlation function C0j = φjφk .
+ 3. Repeat step 2 as many times as feasible and construct the
+ mean C0j =φ0|Tj |φ0 (since |φj are chosen with
+ appropriate weight, the mean suffices).
+ 4. Plot log C0j against j. At sufficiently large j the slope gives
+ −E0δt. Alternatively, find a plateau in the local masses
+ mj =log(C0,j+1 /C0j ).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ A measurement of a correlation function
+ C
+ 4
+ 3
+ 2
+ 1
+ 5
+ 10
+ 15
+ 20
+ 25
+ 30
+ t
+ Correlation functions decrease monotonically because all
+ eigenvalues of T are positive (reflection positivity) as a
+ consequence of the unitarity of U.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Ameasurementofacorrelationfunction
+ 5 10 15 20 25 30
+ t
+ 0.5
+ 1.0
+ 2.0
+ C
+ Correlationfunctionsdecreasemonotonicallybecauseall
+ eigenvaluesofTarepositive(reflectionpositivity)asa
+ consequenceof theunitarityofU.
+ SG IntroductiontoLGT
+Outline RG LGT Fermions
+ Quantum field theory
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Quantum mechanics of a single particle is a 1-dimensional field
+ theory. The (Euclidean) Feynman path integral is
+ ∞
+ Z = Dxexp −
+ −∞
+ dt S(x) ,
+ where S is the action and the integral over an x at each time is
+ regularized by discretizing time.
+ We extend this to a quantum field theory in dimension D. If the
+ space-time points are labelled by x, and the fields are φ(x), then
+ the Euclidean partition function is
+ Z = Dφexp − dDxS(φ) ,
+ where S is the action density and the integrals may be regulated
+ by discretizing space-time.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ The lattice and the reciprocal lattice
+ In the usual perturbative approach to field theory, the computation
+ of any n-point function involves loop integrals which diverge.
+ These are regulated by putting a cutoff Λ on the 4-momentum.
+ When space-time is regulated by discretization, then the lattice
+ spacing a provides the cutoff Λ = 1/a.
+ We will take the discretization of space-time to be a regular
+ hypercubic lattice, with sites denoted by a vector of integers
+ x =aj. When fields are placed on such a lattice, φ(x), the
+ momenta are no longer continuous, but form a reciprocal lattice.
+ k = 2π
+ a
+ l,
+ where the l are integers. The physics at all points on the reciprocal
+ lattice are equivalent.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Fourier transforms and the Brillouin zone
+ In practice our lattice will not be infinite, but a finite hypercube
+ with, say, ND sites. At each site, x, on the lattice, let us put a
+ complex number φ(x). We can put periodic boundary conditions,
+ φ(x) = φ(x + ˆN). Next, we can make Fourier transforms
+ φ(k) =
+ φ(x)eikx, φ(x) = 1
+ ND
+ k 
+φ(k)e−ikx,
+ x
+ where k = 2πl/N, and l have components taking integer values
+ between 0 and N or −N/2 and N/2. One sees that the boundary
+ condition allows components only inside the Brillouin zone, i.e.,
+ the region −π/a ≤ kµ ≤ π/a. Any k outside this is mapped back
+ inside by the periodicity of the lattice.
+ The completeness of the Fourier basis implies
+ 1
+ ND
+ x 
+e−iqx =δ0q.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ The great unification
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ The renormalization procedure will be to take the continuum limit
+ a →0(i.e., Λ → ∞) keeping some physical quantity fixed, such as
+ a mass, m. If this is fixed in physical units, then in lattice units it
+ must diverge as a → 0. This corresponds to a second order phase
+ transition on the lattice.
+ A lattice field theory in Euclidean time and D dimensions of space
+ is exactly the same as a statistical mechanics on a D + 1
+ dimensional lattice. Here is the precise analogy—
+ Action
+ Path integral
+ ↔
+ ↔
+ 2-point function ↔
+ Transfer matrix
+ Partition function
+ Correlation function
+ Continuum limit ↔ 2nd order phase transition
+ Unitarity
+ ↔
+ SG
+ Reflection positivity
+ Introduction to LGT
+Outline RG LGT Fermions
+ Phase transitions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Normal single phase behaviour, two-phase coexistence (first order
+ phase transitions), three-phase coexistence (triple points), critical
+ point (second order phase transitions).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Divergences and critical exponents
+ Scaling of free energy at a critical point (Tc,Pc)
+ F(T,P) = paf t
+ pb p=P−Pc, t=T−Tc.
+ The scaling form implies power law divergence of the specific heat
+ (t−α), order parameter (t−β and p−δ) and order parameter
+ susceptibility (t−γ) at the critical point. There are various relations
+ between these critical exponents since the scaling form contains
+ only two exponents (see [3]).
+ Also there is scaling of the correlation function—
+ G(r,T,p = 0) = r(2−d−η)g r
+ t−ν .
+ At the critical point the correlation length diverges. The scaling
+ form implies that
+ ξ ∝t−ν,
+ G(r,t = 0,p = 0) ∝ 1
+ rη+d−2 .
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Coarse graining and the Renormalization Group
+ ξ
+ If the correlation length of a system is ξ, then one can
+ try to define coarse grained variables by summing over
+ blocks of sites. When the block size becomes larger
+ than ξ, the problem simplifies.
+ A renormalization group (RG) transformation is the following—
+ 1. Coarse grain by summing the field over a block of size ζa, and
+ scale the sum to the same range as the original fields. This
+ changes a → ζa.
+ 2. Find the Hamiltonian of the coarse grained field which
+ reproduces the thermodynamics of the original system. The
+ couplings in the Hamiltonians “flow” g(a) → g(ζa) = g′.
+ 3. The flow follows the Callan-Symanzik beta-function
+ B(g) = −∂g
+ ∂ζ ,
+ (note the sign). A fixed point of the RG has B(g) = 0.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Linearized Renormalization Group transformation
+ Assume that there are multiple couplings Gi with beta-functions
+ Bi. At the critical point the values are Gc
+ i . Define gi = Gi − Gc
+ i .
+ Then,
+ Bi(G1,G2,
+ ) =
+ Bijgj + O(g2).
+ j
+ Diagonalize the matrix B whose elements are Bij. In cases of
+ interest the eigenvalues turn out to be real.
+ Eigenvectors corresponding to negative eigenvalues are called
+ relevant operators, for positive eigenvalues, the eigenvectors are
+ called irrelevant operators, those with zero eigenvalues are called
+ marginal operators.
+ If an eigenvalue is y then the corresponding eigenvector v → ζ−yv
+ under an RG scaling by factor ζ. The eigenvalues are called
+ anomalous dimensions. Marginal operators correspond to
+ logarithmic scaling.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Renormalization Group trajectories
+ Fixed points: ξ = 0 (stable) or ξ = ∞ (unstable).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Renormalization Group trajectories
+ irrelevant
+ irrelevant
+ relevant
+ irrelevant
+ Fixed points: ξ = 0 (stable) or ξ = ∞ (unstable).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Renormalization Group trajectories
+ Fixed points: ξ = 0 (stable) or ξ = ∞ (unstable).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Renormalization Group trajectories
+ Fixed points: ξ = 0 (stable) or ξ = ∞ (unstable).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ RenormalizationGrouptrajectories
+ critical surface
+ 8
+ (ξ=  )
+ Fixedpoints: ξ=0(stable)orξ=∞(unstable).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ RenormalizationGrouptrajectories
+ critical surface
+ 8
+ (ξ=  )
+ physical trajectory
+ Fixedpoints: ξ=0(stable)orξ=∞(unstable).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ RenormalizationGrouptrajectories
+ critical surface
+ 8
+ (ξ=  )
+ physical trajectory
+ Fixedpoints: ξ=0(stable)orξ=∞(unstable).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ RenormalizationGrouptrajectories
+ critical surface
+ 8
+ (ξ=  )
+ physical trajectory
+ Fixedpoints: ξ=0(stable)orξ=∞(unstable).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ RenormalizationGrouptrajectories
+ critical surface
+ 8
+ (ξ=  )
+ physical trajectory
+ Fixedpoints: ξ=0(stable)orξ=∞(unstable).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ RenormalizationGrouptrajectories
+ critical surface
+ 8
+ (ξ=  )
+ Fixedpoints: ξ=0(stable)orξ=∞(unstable).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Probability theory as a trivial case of field theory
+ Generate random variables x with a probability distribution P(x).
+ We can always shift our definition of x so that x = 0.
+ It is useful to introduce the moment generating function
+ Z(j) =
+ xn jn
+ n! = dxexjP(x).
+ n
+ The derivatives of Z(j) give the moments. Now define the
+ characteristic function F(j) = logZ(j). The derivatives give
+ cumulants. We will use the notation
+ x2 = d2F(j)
+ dj2
+ = x2 −x 2=σ2.
+ j=0
+ The Hamiltonian of statistical mechanics is analogous to
+ h(x) = logP(x). Then Z(j) is the partition function, and F(j) the
+ free energy. The derivatives of F give expectations of connected
+ parts; these are the cumulants.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Coarse graining and the RG
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Take a group of N random numbers, xi, and define their mean
+ N
+ x = 1
+ N i 
+xi.
+ The N
+ x are coarse grained random variables. A standard question
+ in probability theory is the distribution of these coarse grained
+ variables. Clearly this is a question in RG.
+ We need to compute the coarse grained characteristic function
+ FN(j). First,
+ N
+ N
+ ZN(j) =
+ dN
+ x eNxjδ N
+ x − 1
+ N
+ = [Z(j/N)]N .
+ i=1
+ implies
+ FN(j) = NF j
+ N .
+ SG
+ xi
+ dxieh(xi)
+ i=1
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ The central limit theorem: a fixed point theorem
+ Since
+ F(j) = σ2j2
+ 2! + [x3] j3
+ 3! +[x4] j4
+ 4! + ,
+ we find the RG flow gives
+ FN(j) = σ2
+ N
+ j2
+ 2! + [x3]
+ N2
+ j3
+ 3! + [x4]
+ N3
+ j4
+ 4! + .
+ In the limit, since all the higher cumulants scale to zero much
+ faster, we find that the RG flows to the Gaussian fixed point
+ FN(j) = σ2j2/(2N). This is the content of the central limit
+ theorem.
+ Subtleties may occur if σ2 = 0, with extensions to the case when
+ all the cumulants up to some order are zero. Other subtleties arise
+ when the distributions are fat-tailed and all the cumulants diverge.
+ Other RG methods are needed for these special cases.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Generating functions in field theory
+ Any integral with a non-negative integrand can be treated as a
+ D =0field theory. Some of the tricks one plays with integrals can
+ be generalized to field theories.
+ In any field theory it is useful to extend the path integral to a
+ generating functional of correlation functions—
+ Z[J] = Dφexp − dDx S(φ)+J(x)φ(x) ,
+ The connected parts of correlation functions are recovered as usual
+ by taking functional derivatives—
+ C(z,z′) = 1
+ Z[J]
+ δ2Z[J]
+ δJ(z)δJ(z′) J=0 
+.
+ These are clear generalization of the notions of the moment
+ generating function and the characteristic function.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ The Ising model
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ The Ising model on a one-dimensional lattice contains a “spin”
+ variable, σi = ±1 at each site, i, of the lattice. The Hamiltonian is
+ N
+ H =−J
+ σiσi+1.
+ i=1
+ We may put periodic boundary conditions on the lattice through
+ the condition that σN+1 = σ1. We write β = J/T.
+ This can be solved by introducing the transfer matrix [2]
+ T(β) = eβ e−β
+ e−β eβ .
+ Since Z(β) = TrTN, the eigenvalues of the transfer matrix
+ completely specify the solution. We find
+ Z(β) = 2N (coshβ)N +(sinhβ)N .
+ The system becomes ordered only in the limit β → ∞.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Coarse graining and fixed points
+ However, we can also perform a coarse graining with ζ = 2. Since
+ T2(β) = 2coshβ
+ 2
+ where z = 
+2
+ 2coshβ =
+ 2coshβ z 1/z
+ 1/z
+ z
+ (coshβ)/2. Expanding around β = ∞ one may
+ define the renormalized temperature as
+ ,
+ β′ = β− 1
+ 2 log2+O e−4β .
+ The fixed point is β → ∞, as expected. This is a repulsive fixed
+ point. At the other end, one has β′ = β2 +O(β4). Hence β = 0 is
+ another fixed point, which is attractive.
+ 0
+ 8
+ β
+ The RG flow for the 1-d Ising model is particularly simple.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Power counting
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Consider the relativistic quantum field theory of a single real scalar
+ f
+ ield φ. The Lagrangian density, L, can be written as a polynomial
+ in the field and its derivatives. One usually encounters the terms
+ L = 1
+ 2∂µφ∂µφ+ 1
+ 2M2φ2 + g3
+ 3! φ3 + g4
+ 4! φ4 +
+ Let us count the mass dimensions of the fields in units of a length
+ L or a momentum Λ. Since the action is dimensionless,
+ [L] = L−D = ΛD. The kinetic term shows that
+ [φ] = L1−D/2 = ΛD/2−1.
+ The couplings have dimensions
+ M2 = L−2=Λ2,
+ [g3] = L(D−6)/2 = Λ(6−D)/2,
+ [g4] = LD−4 =Λ4−D.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ The upper critical dimension
+ For each operator in the theory there is a certain dimension at
+ which the coupling is marginal. This is called the upper critical
+ dimension, Du. The coupling gr corresponding to the operator φr
+ has
+ Du = 2r
+ r −2 .
+ The mass is a relevant coupling in all dimensions, g3 is relevant
+ below Du = 6, g4 below Du = 4. All other operators are irrelevant
+ in D =4. Derivative couplings are relevant (the kinetic term is
+ marginal) in all dimensions.
+ Bogoliubov and Shirkov [5] set out power counting rules for
+ divergences of loop integrals. It turns out that for D > Du an
+ operator is unrenormalizable; at D = Dc the operator gives a
+ renormalizable contribution, and for D < Du the theory is
+ super-renormalizable.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Field theory is not statistical mechanics
+ Divergences in statistical mechanics are due to long-distance
+ physics. In field theory they are due to short distance physics.
+ Therefore, in statistical mechanics it is the power of L which
+ counts. For field theory, it is instead the power of Λ which
+ determines which terms are important.
+ This is also reflected in the differences in the physical meaning of
+ RG transformations in the two cases. The critical point in
+ statistical mechanics is a point in the phase diagram where the
+ correlation length actually becomes infinite. In field theory the
+ critical point can be reached for any mass of the particle by scaling
+ the lattice spacing to zero (momentum cutoff to infinity).
+ irrelevant ↔
+ marginal
+ relevant
+ ↔
+ un-renormalizable
+ renormalizable
+ ↔ super-renormalizable
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Scalar Field Theory
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ The continuum Lagrangian for a single component real scalar field
+ theory can be easily written for the lattice
+ 1
+ S = aD
+ =
+ x
+ 2a2
+ µ 
+[φ(x + ˆa)−φ(x)]2 + 1
+ 2m2φ2(x)+V(φ)
+ x
+ M2φ2(x) −
+ [φ(x)φ(x + ˆ)] +V(φ).
+ µ
+ In the first line we have replaced derivatives by the forward
+ difference, ∇, on the lattice, and kept dimensional variables
+ explicit. The notation is that x denotes a lattice site, one of the
+ D directions, ˆan unit vector in that direction and a the lattice
+ spacing. In the second line we have absorbed appropriate powers of
+ a into every variable, written out the expressions in dimensionless
+ units and then set a = 1. Note that M2 = D +m2a2/2.
+ By the earlier power-counting, it suffices to take V(φ) = g4φ4/4!
+ in D ≥4.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Notation for lattice theories
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ 1. The lattice spacing will always be written as a except when we
+ use units where a = 1.
+ 2. We will use the notation x, y, etc., to denote either a point in
+ continuum space-time, or on the lattice.
+ 3. Fourier transforms on ND lattices are
+ φ(k) =
+ x
+ φ(x)eikx, φ(x) = 1
+ ND
+ k 
+φ(k)e−ikx, k =2πi/N,
+ where reciprocal lattice points i have components taking
+ values between 0 and N or −N/2 and N/2. In other words,
+ the Brillouin zone contains momenta between ±π. The
+ completeness of the Fourier basis implies
+ 1
+ ND
+ x 
+e−iqx =δ0q.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Free scalar field theory
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ On a lattice of size ND the free theory, V = 0, can be completely
+ solved by Fourier transformation. The action becomes
+ 1
+ S =
+ k
+ 2 m2−
+ µ 
+(1−coskµ) φ2(k).
+ Since the Fourier transform is an unitary transformation of fields,
+ the Jacobian for going from φ(x) to φ(k) is unity. Therefore, the
+ Fourier transformation gives a set of decoupled Gaussian integrals,
+ and
+ −1/2
+ Z[β] =
+ =
+ dφ(k)e−βS = 
+k
+ 1
+ det β
+ (∇2 +m2)
+ ,
+ β
+ k
+ 2
+ 2
+ where ∇ is the forward difference operator.
+ SG
+ (m2 +
+ sin2 kµ
+ µ
+ 2 )
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Low energy modes and Symanzik improvement
+ −π
+ π
+ G(k)
+ k
+ When m =0 the two-point function of scalar field
+ theory, G, vanishes at the center of the Brillouin zone
+ and is maximum at the edges. Inside the Brillouin zone
+ there is only one long distance mode when a → 0.
+ At small k one has G ≃ k2[1+O(k2a2)]. Symanzik
+ improvement consists of improving the a-dependence at tree level
+ at finite lattice spacing by adding irrelevant terms to the lattice
+ action. For a scalar field, one can write
+ G(k) = 4
+ 3 (1−coskµ)− 1
+ 12 (1−cos2kµ) = 1
+ 2k2 +O(k6).
+ Hence, by removing the k4 terms, one has an improved action.
+ Clearly this is achieved by taking the forward difference and the
+ two-step forward difference with appropriate coefficients.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ The interacting theory
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ The standard form of the action for the scalar theory is
+ S =
+ V(φ) −κ
+ x
+ φ(x)φ(x + ˆ) , V(φ) =λ(φ2−1)2−φ2.
+ µ
+ When the hopping parameter κ is large we may expand around
+ the free field limit. This is lattice perturbation theory. In the limit
+ when κ →0 we may make a hopping parameter expansion around
+ a solution in which the sites are decoupled.
+ When λ →∞the field at the scale of the cutoff must sit at the
+ minimum of the potential, so the model looks like the Ising model.
+ From our earlier discussion, we expect that the critical exponents
+ of scalar field theory must be the same as that of the Ising model,
+ i.e., the two are in the same universality class.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Monte Carlo simulations
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ In general the theory is investigated by Monte Carlo simulations.
+ The algorithm is the following—
+ 1. Start from a randomly generated configuration of fields,
+ φ(x), on the lattice.
+ 2. At one lattice site, x, make a random suggestion for a new
+ value of the field, φ′(x).
+ 3. Make a Metropolis choice as follows. If the change in the
+ action, ∆S, due to the change in the field is negative, or
+ exp(−β∆S) is smaller than a random number r (uniformly
+ distributed between 0 and 1) then accept the suggestion.
+ Otherwise reject it.
+ 4. Sweep through every site of the lattice repeating steps 2, 3.
+ 5. At the end of each sweep make measurements of the
+ moments of the field variables.
+ 6. Repeat from step 2 as many times as the computational
+ budget allows.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Bosons in D = 2
+ κ
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ magnetized
+ critical surface
+ unmagnetized
+ λ
+ g
+ The theory of interacting bosons in D = 2 has a non-trivial critical
+ point corresponding to the Ising model. RG trajectories lying
+ anywhere on the critical surface are attracted to this. Since the
+ scalar field in D = 2 is dimensionless, an infinite number of
+ couplings, g, in addition to κ and λ, need to be tuned to get to it.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ Triviality of the Higgs in D = 4
+ magnetized
+ κ
+ critical line
+ unmagnetized
+ λ
+ In D =4 the only attractive point on the critical surface has
+ λ =0. Since all RG trajectories are attracted to λ = 0, close to
+ the continuum limit perturbation theory can be used to examine
+ the beta-function. (M. Luscher and P. Weisz, Nucl. Phys., B 290, 25,
+ 1987).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ References
+ Feynman Wilson Gauss Ising Bogoliubov Higgs Cite
+ R.P.Feynman and Hibbs, The Path Integral and its
+ Applications, McGraw Hill.
+ R.J.Baxter, Exactly Solved Models in Statistical Mechanics,
+ Academic Press.
+ D.J.Amit and V. Martin-Mayor, Field Theory, the
+ Renormalization Group, and Critical Phenomena, World
+ Scientific.
+ G.Toulouse and P. Pfeuty, Introduction to the Renormalization
+ Group and its Applications, Grenoble University Press.
+ N.N.Bogoliubov and D. V. Shirkov, Introduction to the
+ Theory of Quantized Fields, Interscience.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Outline
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The path integral and the renormalization group
+ The path integral formulation
+ Field theory, divergences, renormalization
+ Example 1: the central limit theorem
+ Example 2: the Ising model
+ Example 3: scalar field theory
+ Bosons on the lattice
+ References
+ Lattice formulation of gauge theories
+ Wilson’s formulation of lattice gauge theory
+ Confinement in strong coupling
+ Gauge theories at high temperature
+ Monte Carlo Simulations
+ The continuum limit
+ Lattice Fermions
+ Putting fermions on the lattice
+ Fermion matrix inversions
+ References
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Notation for lattice theories
+ Yang-Mills Confinement Freedom Simulation Continuum
+ 1. The lattice spacing will always be written as a except when we
+ use units where a = 1. When quantities with different
+ dimensions are equated, it will mean that each quantity is
+ made dimensionless by multiplying by appropriate factors of a
+ and a is set to 1. For example, 2π +m = 2π/a+m.
+ 2. In contexts where there is no confusion, we will use the
+ notation x, y, etc., to denote either a point in continuum
+ space-time, or on the lattice.
+ 3. If we need more clarity, then sites on the lattice will be
+ denoted by vectors of integers i, j, etc..
+ 4. To specify links on the lattice, we need to specify the lattice
+ point x and a direction . Directions will be denoted by Greek
+ symbols , ν, etc.. Unit vectors in these directions will be
+ written as ˆ, ˆ ν, etc.. As a result, the nearest neighbours of x
+ are x + ˆa.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Notation for groups
+ Yang-Mills Confinement Freedom Simulation Continuum
+ 1. Group indices are denoted by Greek symbols α, β, etc..
+ 2. Generators of group algebra are denoted λα, and can be
+ represented by traceless Hermitean matrices. They satisfy the
+ algebra [λα,λβ] = ifαβγλγ, where f is called the structure
+ constant. An algebra element, A = Aαλα, is a linear
+ combination of the generators with Aα real.
+ 3. Generators are normalized so that Tr(λαλβ) = δαβ/2
+ 4. Members of the group are exponentials U = exp(iA). In the
+ representation where A are traceless Hermitean, U are unitary,
+ i.e., UU† = 1. For example, the Wigner D matrices are
+ representations of the rotation group O(3).
+ 5. Characters of group elements are χr(U) = TrU, so they
+ depend on the representation, r. For example, for rotation
+ through a fixed angle, the traces of Wigner D matrices
+ depend on the angular momentum L.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ The center of a group
+ Yang-Mills Confinement Freedom Simulation Continuum
+ 1. We define the center of a group to be those elements, z,
+ which commute with all elements of the group, i.e., zU = Uz
+ for any U.
+ 2. The center of a group is non-empty because the identity is
+ always a member of the center.
+ 3. Since zU = Uz, we find that U−1z−1 = z−1U−1 for any U in
+ the group. So, if z is in the center then z−1 is also in the
+ center.
+ 4. The center elements obey all other properties which a group
+ must have since they are elements of a larger group.
+ 5. Hence the center of a group is an Abelian subgroup.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ What is a gauge field?
+ Yang-Mills Confinement Freedom Simulation Continuum
+ Minimal coupling of a gauge field Aµ = Aα µλα (λα are generators
+ of the gauge group) means that the momentum operator is
+ (pµ −eAµ)ψ = (i∂µ −eAµ)ψ.
+ So Aµ is involved in parallel transporting the wave-function by an
+ infinitesimal amount in the direction . A change in
+ Aµ(x) → Aµ(x)+∂µf(x), i.e., a gauge transformation is
+ unphysical and can be absorbed into an equally unphysical phase
+ of ψ.
+ On a lattice there are no infinitesimal displacements. The
+ derivative operator is replaced by a finite difference. The parallel
+ transporter must be replaced by the analogous finite quantity. This
+ is the (group valued) link variable
+ Uµ(x) = exp(iaAµ).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Gauge transformations
+ Yang-Mills Confinement Freedom Simulation Continuum
+ On a lattice we must now promote the algebra valued local gauge
+ function f (x) to a local group-valued field V(x) = exp[if (x)]. The
+ derivative of the function in a transformation means that we must
+ use the function at two points. An obvious generalization is
+ Uµ(x) → V(x)Uµ(x)V†(x + ˆa).
+ If we parallel transport a state across a path (x1,x2,
+ xN), where
+ xl+1 = xl + ˆla, then the relevant field and its gauge transform
+ are—
+ N−1
+ U(x1,x2,
+ xN) =
+ l=1
+ Uµl
+ (xl) → V(x1)U(x1,x2, xN))V†(xN).
+ If we go around a closed loop (x1 = xN) then the gauge
+ transformation is purely local. The trace of a closed loop
+ U(x1,x2,x3,
+ , x1) is then gauge invariant. These are the only
+ gauge invariant quantities that one can build.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Some pictures
+ U  (x)
+ µ
+ x µ
+ Yang-Mills Confinement Freedom Simulation Continuum
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Some pictures
+ V(y)
+ Yang-Mills Confinement Freedom Simulation Continuum
+ y
+ U  (x)
+ µ
+ x µ
+ U(x,...,y)
+ V(x)
+ x
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Some pictures
+ V(y)
+ Yang-Mills Confinement Freedom Simulation Continuum
+ y
+ U  (x)
+ µ
+ x µ
+ U(x,...,y)
+ V(x)
+ x
+ SG
+ ν
+ x
+ µ
+ P    (x)
+ µν
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The Wilson action S = β x, ≤ν ReTr[P ,ν(x)−1]
+ The Wilson action is written in terms of a plaquette, which is the
+ smallest loop on a hypercubic lattice—
+ Pµν(x) = U(x,x + ˆa,x + ˆa+ˆ νa,x + ˆ νa,x)
+ = Uµ(x)Uν(x + ˆa)U†
+ µ(x + ˆ νa)U†
+ ν(x).
+ To leading order in a the exponents of Uν(x + ˆa) and U† ν(x) give
+ the ∂µAν term. Using the Baker Campbell Hausdorff formula
+ exey = ex+y+[x,y]/2,
+ we recover the field commutators for non-Abelian fields. Putting
+ all of it together
+ Pµν(x) = exp ia2∂µAν(x) −ia2∂νAµ(x) + a2[Aµ(x),Aν(x)] + O(a4) .
+ The trace gives 1 + a4FµνFµν +O(a6), thus reproducing the
+ continuum Yang-Mills’ action.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The partition function Z(β) = 
+x, dU(x)exp[−S]
+ The integrals in the partition function are Haar integrals over the
+ gauge group. They are normalized and translation invariant so that
+ dU =1,
+ dUU =0, dUf(U)= dUf(UV),
+ where V is a fixed group element. Under the Haar measure group
+ characters are orthogonal, i.e.,
+ dUχ∗
+ p(U)χq(U) = δpq,
+ where p and q label representations, and the star denotes complex
+ conjugation. Given a complex valued function on the group, f (U),
+ we can perform harmonic analysis (Fourier transforms) on the
+ group
+ fr = dUχ∗
+ r(U)f(U).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ A strong coupling expansion
+ Yang-Mills Confinement Freedom Simulation Continuum
+ In the limit β → 0 one has exp(−S) → 1 so that Z = 1. The
+ strong coupling expansion consists of corrections around this
+ limit. This uses the following facts about group integrals—
+ dUχr(U) = δr0, dUχr(VU)χs(U†W) = δrs 
+1
+ dr 
+χr(VW),
+ where dr is the dimension of the representation r, and r = 0 is the
+ trivial representation, U = 1.
+ For a plaquette, P, we use the observation that
+ 
+ e−βP = c0(β)
+ 1+
+ drar(β)χr(P)
+ r=0
+ 
+ ,
+ where the functions ar can be computed, and the leading power of
+ β increases with r. We see that the only contributions to Z come
+ from closed surfaces of plaquettes.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Other methods
+ Yang-Mills Confinement Freedom Simulation Continuum
+ Other methods available for dealing with the Wilson action are
+ 1. An expansion around β → ∞, i.e., the weak coupling
+ expansion. Such a perturbation expansion on the lattice has
+ more vertices than the continuum expansion. As a result, high
+ order computations become difficult. The most important
+ result from lattice perturbation theory is the computation of
+ the beta-function. This gives a check on the universality of
+ the function up to two-loop order, and thereby a relation
+ between Λlat and ΛMS
+ .
+ 2. The preferred methods are numerical simulations, either the
+ Metropolis, heat-bath or over-relaxation methods. In a
+ numerical computation the lattice must be finite, say ND, so
+ that there are both infrared and ultraviolet cutoffs. As a
+ decreases, if the volume is unchanged in physical units, then
+ N must increase. So the number of degrees of freedom
+ increases as ND, leading to a rapid increase in computer time
+ requirements.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Does QCD confine?
+ Yang-Mills Confinement Freedom Simulation Continuum
+ ◮ You do not build new formulations in order to answer the
+ same old questions. The unanswered big question for
+ perturbation theory is whether non-Abelian gauge theories
+ confine. Wilson framed the question in terms of the potential
+ between two static quarks, V(r).
+ ◮ In the 60’s it was discovered that the known Hadron spectrum
+ showed Regge behaviour, i.e., M2 ≃ J. This was shown to
+ be the spectrum that arises from a spinning string of finite
+ tension (although the string theory of hadrons was, and
+ remains, inconsistent).
+ ◮ In the 70’s it was discovered that non-Abelian fields might not
+ spread out from a charge in Coulomb’s radial pattern, but
+ might collapse into a flux tube. In that case one might have
+ V(r) ∝ r, as for a string rather than the V(r) ∝ 1/r assumed
+ in perturbation theory.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Static quark sources
+ Yang-Mills Confinement Freedom Simulation Continuum
+ A quark source couples to gauge field through the term
+ δS = dDxjµAµ → dDxδ(D−1)(x)A0 = dx0A0,
+ where the last result is obtained after taking the limit of a static
+ quark sitting at the spatial point x = 0 which has only the
+ component j0. After a Wick rotation to Euclidean space, this part
+ of the action reduces to a link in the time direction. The symmetry
+ of Euclidean rotations can then be used to rotate these into any
+ direction one chooses.
+ As a result, a static quark (or antiquark) source can be represented
+ in the lattice theory as a sequence of gauge fields U along the path
+ taken by the quark.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Wilson loops
+ exp[−V(r)] = lim
+ Yang-Mills Confinement Freedom Simulation Continuum
+ T→∞ TrU(x,x +ˆ z, ,x +ˆ zr, ,
+ x +ˆ zr +ˆ tT,
+ , x +ˆ tT,
+ = lim
+ T→∞W(r,T).
+ SG
+ , x)
+ Introduction to LGT
+Outline RG LGT Fermions
+ Wilson loops
+ T
+ exp[−V(r)] = lim
+ Yang-Mills Confinement Freedom Simulation Continuum
+ T→∞ TrU(x,x +ˆ z, ,x +ˆ zr, ,
+ x +ˆ zr +ˆ tT,
+ , x +ˆ tT,
+ = lim
+ T→∞W(r,T).
+ SG
+ , x)
+ Introduction to LGT
+Outline RG LGT Fermions
+ Wilson loops
+ T
+ Yang-Mills Confinement Freedom Simulation Continuum
+ exp[−V(r)] = lim
+ T→∞ TrU(x,x +ˆ z, ,x +ˆ zr, ,
+ x +ˆ zr +ˆ tT,
+ = lim
+ T→∞W(r,T).
+ SG
+ , x +ˆ tT,
+ , x)
+ Introduction to LGT
+Outline RG LGT Fermions Yang-Mills Confinement Freedom Simulation Continuum
+ Wilsonloops
+ r
+ T
+ exp[−V(r)] = lim
+ T→∞ TrU(x,x+ˆ z, ,x+ˆ zr, ,
+ x+ˆ zr+ˆ tT, ,x+ˆ tT, ,x)
+ = lim
+ T→∞W(r,T).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions
+ Confinement and glueballs
+ Yang-Mills Confinement Freedom Simulation Continuum
+ If V(r) ∝ r then logW(r,T) ∝ rT. This is called the area law.
+ This is obtained at strong coupling because the expectation value
+ of a Wilson loop is proportional to the number of plaquettes it
+ contains. If each plaquette expectation value is p, then
+ W(r,T) ≃ prT.
+ The correlation function between colour singlet operators is
+ mediated by objects called glueballs. If −logW(r,T) ≃ σrT, i.e.,
+ the string tension is σ, then the correlation function of L2 sized
+ loops separated by distance r is given by
+ C(r,L) ≃ exp(−4σrL),
+ i.e., the glueball correlations fall exponentially, and the glueball
+ mass is 4σL.
+ This is not a proof of confinement for QCD because the strong
+ coupling phase does not have a continuum limit due to string
+ roughening.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The strong coupling argument
+ Wilson loop
+ J.-M. Drouffe and C. Itzykson, Phys. Rep., 38, 133, 1978
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The strong coupling argument
+ J.-M. Drouffe and C. Itzykson, Phys. Rep., 38, 133, 1978
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The strong coupling argument
+ Wilson loop correlations
+ J.-M. Drouffe and C. Itzykson, Phys. Rep., 38, 133, 1978
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The strong coupling argument
+ J.-M. Drouffe and C. Itzykson, Phys. Rep., 38, 133, 1978
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The strong coupling argument
+ J.-M. Drouffe and C. Itzykson, Phys. Rep., 38, 133, 1978
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ Breakdown of the strong coupling expansions
+ 0.65
+ 0.60
+ 0.55
+ 0.50
+ 8 terms
+ 7 terms
+ 0.45
+ <P>
+ 0.40
+ 0.35
+ 0.30
+ 0.25
+ 8
+ 9
+ 10
+ 11
+ 12
+ β
+ S. Datta and S. Gupta, Phys. Rev., D80, 114504, 2009
+ Comparison of the strong coupling expansion for the plaquette and
+ Monte Carlo measurements for SU(4) gauge theory on a 164
+ lattice. The strong coupling expansion seems to break down at
+ β ≃10. Fluctuations of the surface become unbounded.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ Gauge theories at finite temperature
+ The statistical mechanics of a gauge theory is examined by
+ evaluating the partition function with periodic boundary conditions
+ in the Euclidean time direction and sending the spatial size to
+ infinity (the thermodynamic limit). In practice one computes on
+ a Nt ×ND−1
+ s
+ lattice with T = 1/(aNt) and limit L = Nsa ≫ 1/T.
+ At finite temperature the action has a global symmetry under
+ multiplication of time-like links by any element of the center, of
+ the gauge group i.e.,
+ if U′
+ t(x) = zUt(x), then S[U′] = S[U].
+ To check this, note that if U → zU then U† → z−1U†. As a result
+ each plaquette is invariant, and hence the action is invariant.
+ If the center of the gauge group is non-trivial (i.e., contains more
+ than just the identity) then one can investigate whether this global
+ symmetry is broken or restored as the temperature changes.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ An order parameter for deconfinement
+ The free energy, F, of a single static quark is given by the
+ Polyakov loop
+ L =Tr
+ Ut(x +ˆ tl), e−F = Re L .
+ l
+ L does not go into itself under a center transformation and hence
+ can serve as an order parameter for the breaking of the center
+ symmetry. At T = 0 L =0, since a single static quark has
+ infinite free energy in the confined vacuum. However, if there is
+ deconfinement, then ReL may be non-zero. This is essentially what
+ happens above a transition temperature for deconfinement, Tc.
+ However, L = 0 identically because of the
+ center symmetry of the action. As a result, for
+ T >Tc, L can take several non-zero values, all of
+ which are center transforms of each other. The
+ sum over these vanishes.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ An order parameter for deconfinement
+ The free energy, F, of a single static quark is given by the
+ Polyakov loop
+ L =Tr
+ Ut(x +ˆ tl), e−F = Re L .
+ l
+ L does not go into itself under a center transformation and hence
+ can serve as an order parameter for the breaking of the center
+ symmetry. At T = 0 L =0, since a single static quark has
+ infinite free energy in the confined vacuum. However, if there is
+ deconfinement, then ReL may be non-zero. This is essentially what
+ happens above a transition temperature for deconfinement, Tc.
+ However, L = 0 identically because of the
+ center symmetry of the action. As a result, for
+ T >Tc, L can take several non-zero values, all of
+ which are center transforms of each other. The
+ sum over these vanishes.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ The equation of state
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The classic method for computing the equation of state is to
+ obtain operators whose expectation values give thermodynamic
+ variables. The definitions are
+ E = T2
+ V
+ ∂ logZ
+ ∂T V
+ , P=T ∂logZ
+ ∂V T
+ .
+ These derivatives give combinations of plaquettes. Such operators
+ seem to have strong finite lattice artifacts.
+ As a result, this operator method is now superceded by the integral
+ method. In this new method, one uses the fact that
+ P = T
+ V
+ β
+ log Z = P0 + T
+ V
+ β0
+ dβT4∂logZ
+ ∂β .
+ In addition, one uses the operator expression for E − 3P to obtain
+ the complete thermodynamics. (G. Boyd et al., Nucl. Phys., B469,
+ 419, 1996).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The Metropolis algorithm and acceptance rates
+ The Metropolis and Heat-Bath algorithms continually bring each
+ degree of freedom into equilibrium with its neighbours at a given
+ β. For every link with value U, one suggests a random new value
+ U′ and accepts it with the Metropolis probability
+ p =min 1,eβ∆S , where ∆S =S[U′]−S[U].
+ Some measure of the distance between U and U′, δ = |U′ −U′| is
+ tuned so that the acceptance rate in equilibrium, p β, is around
+ 80%. Extremely high or low acceptance rates mean that the
+ movement in configuration space is very slow. It would be an
+ useful exercise to measure p β as a function of δ and try to find
+ invariance principles as the bare coupling, β is changed.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ The heat-bath algorithm
+ Yang-Mills Confinement Freedom Simulation Continuum
+ If all neighbours of a single link are kept fixed, while it is
+ repeatedly updated by Metropolis, then asymptotically it reaches a
+ certain “thermal” distribution. Heat-bath (HB) algorithms are set
+ up to sample this in one step.
+ For an Ising model if the spin of interest is s, and the sum over all
+ neighbouring spins is h, then the limiting probabilities are
+ p(s) = e−βhs
+ 2coshβh .
+ The Ising HB is simply to set s = ±1 with the above probabilities.
+ For the U(1) group there is an HB due to Bunk (B. Bunk,
+ unpublished), a fast HB specific to SU(2) (A. D. Kennedy and B. J.
+ Pendleton, Phys. Lett., B156, 393, 1985), and a method for extending
+ this to any SU(N) (N. Cabibbo and E. Marinari, Phys. Lett., B119,
+ 387, 1982).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Critical slowing down
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The rate at which the whole lattice moves through configuration
+ space can be observed by a damage spreading exercise. (S. Gupta,
+ Nucl. Phys., B370, 741, 1992)
+ Make a copy of a configuration, C, and change it by a large
+ amount in exactly one link. Call this configuration C′. Now
+ subject C and C′ to Monte Carlo evolution and compare them at
+ the end of each sweep. The damage front is that region of the
+ lattice through which the difference between the two
+ configurations is much larger than δ. For the Metropolis and
+ Heat-Bath algorithms this spread is diffusive, i.e., the radius of the
+ damage front changes as √t. This means that measurements are
+ strongly correlated over time scales proportional to R2.
+ The damage front stalls when R ≃ ξ, so global (thermodynamic)
+ averages are correlated at time scales of the order of ξ2.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The Over-Relaxation Algorithm
+ In the over-relaxation (OR) algorithm we move the link as much as
+ possible without changing the action, i.e., we solve S[U′] = S[U]
+ for the new value, U′. A new value is accepted with the probability
+ dU′/dU, i.e., in the ratio of the Haar measures at the two points.
+ This ensures detailed balance. (OR)
+ Since OR does not change the action, one has to intersperse it
+ with an occasional heat-bath (HB) sweep. Typically one takes Nor
+ sweeps of OR per sweep of HB. A damage spreading computation
+ shows that the damage radius grows linearly with the number of
+ sweeps as long as Nor is of the order of the correlation length. (U.
+ Wolff, Phys. Lett., B288, 166, 1992)
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Renormalized couplings
+ Yang-Mills Confinement Freedom Simulation Continuum
+ The bare coupling of SU(N) gauge theory is given by g2
+ B = 2N/β.
+ The renormalized coupling, g, can be found by measurement of
+ some reference quantity on the lattice and using its perturbation
+ expansion to define g. This reference is often taken to be the
+ plaquette since it is easy to measure. (G. P. Lepage, P. B. Mackenzie,
+ Phys. Rev., D48, 2250, 1993)
+ Such a measurement gives g at the scale of a. As one changes β
+ one changes a and hence the renormalized coupling g2. The
+ beta-function measures the change in g2 with changing a. When a
+ is small enough, the renormalized coupling should be so small that
+ one can use 2-loop beta-function
+ a
+ dg
+ da =−β0g3 −β1g5.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Yang-Mills Confinement Freedom Simulation Continuum
+ A strategy for testing the continuum limit
+ Integrating the 2-loop beta-function one has
+ aΛ =kR
+ 1
+ 4πβ0αS
+ , R(x) = e−x/2xβ1/(2β0).
+ Find the bare coupling, βc, at which a lattice with fixed Nt shows
+ the deconfinement transition. At this bare coupling a = 1/(NtTc).
+ Measure αS at this bare coupling. Then change Nt to N′ t, measure
+ the new critical bare coupling, β′ c and corresponding renormalized
+ coupling α′
+ S. The ratio of lattice spacings then gives
+ N′ t
+ Nt 
+= R[1/(4πβ0αS)]
+ R[1/(4πβ0α′
+ S)] .
+ By increasing Nt in steps, one can find how small the lattice
+ spacing has to be before 2-loop scaling begins to work.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions Yang-Mills Confinement Freedom Simulation Continuum
+ Reachingthecontinuumlimit
+ N
+ 10
+ 8
+ 6
+ t
+ β 10.788 11.078 11.339
+ Τ
+ Τ
+ Τ
+ c
+ c
+ c
+ βc determinedtoonepart in104;αS fromplaquette. 2-loopRG
+ workswithprecisionof twoparts in103 fora≤1/(8Tc). (S.Datta
+ andS.Gupta,Phys.Rev.,D80,114504,2009).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions Yang-Mills Confinement Freedom Simulation Continuum
+ Reachingthecontinuumlimit
+ N
+ 10
+ 8
+ 6
+ t
+ β 10.788 11.078 11.339
+ Τ
+ Τ
+ Τ
+ c
+ c
+ c
+ c
+ Τc
+ Τ (4/3)
+ (4/5)
+ βc determinedtoonepart in104;αS fromplaquette. 2-loopRG
+ workswithprecisionof twoparts in103 fora≤1/(8Tc). (S.Datta
+ andS.Gupta,Phys.Rev.,D80,114504,2009).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions Yang-Mills Confinement Freedom Simulation Continuum
+ Reachingthecontinuumlimit
+ 1.308 (2)
+ 0.804(3) N
+ 10
+ 8
+ 6
+ t
+ β 10.788 11.078 11.339
+ Τ
+ Τ
+ Τ
+ c
+ c
+ c
+ c
+ Τc
+ Τ (4/3)
+ (4/5)
+ βc determinedtoonepart in104;αS fromplaquette. 2-loopRG
+ workswithprecisionof twoparts in103 fora≤1/(8Tc). (S.Datta
+ andS.Gupta,Phys.Rev.,D80,114504,2009).
+ SG IntroductiontoLGT
+Outline RG LGT Fermions
+ Outline
+ Formulations Propagators Cite
+ The path integral and the renormalization group
+ The path integral formulation
+ Field theory, divergences, renormalization
+ Example 1: the central limit theorem
+ Example 2: the Ising model
+ Example 3: scalar field theory
+ Bosons on the lattice
+ References
+ Lattice formulation of gauge theories
+ Wilson’s formulation of lattice gauge theory
+ Confinement in strong coupling
+ Gauge theories at high temperature
+ Monte Carlo Simulations
+ The continuum limit
+ Lattice Fermions
+ Putting fermions on the lattice
+ Fermion matrix inversions
+ References
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Formulations Propagators Cite
+ Euclidean Dirac Fermions in D = 4
+ The Dirac Hamiltonian in Euclidean D = 4 space-time, acting on
+ 4-component Dirac spinors, Ψ(x), is
+ H =mβ−iαj∂j, where {β,αj} = 0, {αi,αj} = 2δij,
+ the braces denote anti-commutators, and Latin subscripts run over
+ the three spatial directions. We choose β and αj to be Hermitean.
+ On the lattice we replace the derivative operator by the forward
+ difference as before, and find
+ H =
+ x
+ mΨ†(x)βΨ(x)+ i
+ 2 j 
+Ψ†(x +ˆ j)αjΨ(x)−Ψ†(x)αjΨ(x +ˆ j) .
+ Fourier transforms block diagonalize the Hamiltonian and give
+ H = 1
+ V k 
+ψ†(k)Mψ(k), where M = mβ+
+ j 
+αjsinkj.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Fermion doubling
+ Formulations Propagators Cite
+ These 4 ×4 Dirac blocks can be diagonalized by noting that
+ M† =M and that MM† is diagonal. The eigenvalues are
+ Ek =±
+ m2 +
+ sin2 kj.
+ j
+ In the limit k → 0 one finds the correct dispersion relation
+ Ek =±√
+ m2 +k2. However, sin2kj vanishes not only when kj = 0
+ but also at each edge of the Brillouin zone, i.e., kj = ±π.
+ Therefore, each corner of the Brillouin zone contains one copy of
+ the Dirac Fermion with the correct dispersion relation. This is
+ Fermion doubling.
+ Keeping the quadratic form H = xy Ψ†(y)MΨ(x), the
+ degeneracy can be lifted by changing the Dirac operator M.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Wilson fermions
+ Formulations Propagators Cite
+ Wilson suggested adding irrelevant terms to M, for example,
+ δM =3rβδxy − r
+ 2β
+ j 
+(δx+ˆ j,y +δy+ˆ j,x),
+ with 0 < r ≤ 1. Diagonalizing again by using Fourier transforms
+ and the properties of the Dirac matrices, one has
+ 
+ 
+ E2
+ k =
+ m+r
+ (1 −coskj)
+ j
+ 
+ 2
+ +
+ sin2 kj.
+ j
+ For r in the above range, the degeneracies at the corners of the
+ Brillouin zone are lifted. The dispersion relation at small k is
+ E2
+ k = m2 +(1+2mr)k2 +O(k4),
+ so that the corrections are of order a rather than a2. Symanzik
+ improvement becomes an important issue.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Formulations Propagators Cite
+ Spin-diagonalization of fermions
+ The action, S, for fermion fields Ψ(x) is given by
+ xy Ψ(x)M(x,y)Ψ(y), where the Dirac operator M is
+ M(x,y) = mδxy + 1
+ 2 µ 
+γµ(δx+ˆ µ,y −δx−ˆ µ,y),
+ and γ0 = β and γk = −iγ0αk. We can make a change of variables
+ called spin diagonalization, Ψ(x) = A(x)ψ(x), where A(x) are
+ 4 ×4 unitary matrices such that
+ A†(x)γµA(x + ˆ) = ∆µ(x),
+ The choice A(x) = γx0
+ 0 γx1
+ 1 γx2
+ 2 γx3
+ 3 , where the xi are (integer)
+ components of x, gives a representation of Dirac matrices which
+ are multiples of identity—
+ ∆µ(x) =
+ SG
+ (−1)xi.
+ i>µ
+ Introduction to LGT
+Outline RG LGT Fermions
+ Formulations Propagators Cite
+ Staggered (Kogut-Susskind) fermions
+ The transformed Dirac operator becomes
+ M(x,y) = mδxy + 1
+ 2 µ 
+αµ(x)(δx+ˆ µ,y −δx−ˆ µ,y),
+ which is a multiple of the identity. Hence one can thin the degrees
+ of freedom and keep only a single component of the field at each
+ site. The 16 1-component fermions at the corners of the Brillouin
+ zone can be interpreted as 4 tastes of 4-component fermions. The
+ Dirac components have been distributed across 24 sites of the
+ lattice which collapse to a single point in the continuum.
+ In the limit m → 0 the field on the odd sublattice ( µxµ = odd)
+ connects only to that on the even lattice. Hence there is an exact
+ global U(1) × U(1) chiral symmetry
+ ψ(x ∈ odd) → Uoψ(x),
+ ψ(x ∈ odd) →
+ ψ(x)U†
+ e,
+ and Uo and Ue interchanged on the even sublattice.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Spin-flavour decomposition
+ Formulations Propagators Cite
+ Introduce lattice coordinates xµ = 2yµ + uµ where uµ = 0 or 1.
+ Quark fields can be defined as
+ qαa(y) = 1
+ 8 u 
+Γαa(u)ψ(2y +u),
+ Γ(u) =
+ γuµ
+ µ .
+ µ
+ Here the index α refers to flavour space and a to spin (Dirac).
+ Using the notation γ ⊗ σ for the direct product of a Dirac and
+ f
+ lavour matrix (tµ = γT µ), ∇ for the forward derivative and δ for
+ the second derivative, we find
+ M
+ 16 =m1⊗1+
+ µ 
+(γµ⊗1∇µ−γ5⊗t5δµ).
+ H. Kluberg-Stern, A. Morel, O. Napoli and B. Petersson, Nucl. Phys.,
+ B220, 447, 1983
+ In the a → 0 limit, the δµ term vanishes, and the chiral symmetry
+ is enhanced to U(4) × U(4).
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Some general considerations
+ Formulations Propagators Cite
+ The Fermion action is generally the quadratic form with a 4 × 4
+ matrix M,
+ S = 1
+ V p 
+Ψ(p)M(p)Ψ(p),
+ where the inverse of M is the fermion propagator. The zeroes of
+ M correspond to the poles of the propagator, and give the particle
+ content of the action. Chiral symmetry implies that in the
+ massless case the transformation Ψ → exp(iαγ5)Ψ would lead to
+ M →−γ5Mγ5. In addition one has hypercubic (rotational)
+ symmetry and reflection positivity.
+ One makes the additional technical assumption of the locality of
+ M(x,y), which translates to a statement of F(p) falling sufficiently
+ fast at large p, so that the propagator is continuous. Then with
+ periodic (or anti-periodic) boundary conditions, M(p) must be
+ periodic on the Brillouin zone and therefore have 16 zeroes.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ No neutrinos on the lattice
+ Formulations Propagators Cite
+ The Nielsen-Ninomiya theorem states that if the lattice
+ Hamiltonian for Weyl fermions satisfies
+ 1. translation invariance,
+ 2. locality (the Fourier transform of the kernel has continuous
+ derivatives)
+ 3. Hermiticity
+ 4. any exactly conserved charges are local, have discrete
+ quantum numbers and have bilinear currents
+ then there are equal number of left-handed and right-handed
+ particles for every value of the charge.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Why inversion?
+ Formulations Propagators Cite
+ Meson correlation functions are objects like
+ Cπ(x) = 
+ψ(x)γ5ψ(x)
+ ψ(0)γ5ψ(0) = Trγ5M−1(0,x)γ5M−1(x,0) .
+ Since one cannot program Grassman valued sources efficiently, one
+ cannot write down local operators whose correlators will be
+ saturated by meson states. Instead, every fermionic measurement
+ requires finding the inverse of the Dirac operator.
+ There are fast matrix inversion methods which scale as the third
+ power of the size of the matrix, N. However, since the size of the
+ Dirac operator is proportional to the number of sites on the lattice,
+ these generic methods are too slow for the fermion problem.
+ Instead one utilizes the fact that the Dirac operator is very sparse
+ (since it is essentially a first derivative operator).
+ Sparse matrices can be dealt with very efficiently, for example
+ inverting a tri-diagonal matrix is linear in N.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Changing the problem
+ Formulations Propagators Cite
+ The fastest way to solve Ax = b is the conjugate gradient (CG)
+ algorithm, if A is Hermitean and positive definite (M is not, but
+ M†M is, so we solve M†Mx = M†b instead of Mx = b). What we
+ actually do by the CG is to solve the equivalent problem of
+ minimizing f (x) = x†Ax/2 − b†x +c. This approach follows
+ Shewchuk’s wonderful introduction [5].
+ 100
+ 50
+ 0-5
+ 0
+ 0-5
+ 5
+ 5
+ The quadratic form plotted here is obtained with
+ b =(0,0), c = 0 and
+ A = 4 1
+ 1 4 .
+ The solution of Ax = 0 is x = (0,0), which is where the minimum
+ lies. The eigenvalues of A are 5 and 3, the eigenvector
+ corresponding to the former is v5 = (1,1)/√2 and to the latter is
+ v3 = (1,−1)/√2.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ The steepest descent method
+ Formulations Propagators Cite
+ We will construct an iterative process which will be stopped as
+ soon as the solution, xi, is good enough for use. The error is
+ ǫi = x∗ −xi where x∗ is the solution and the residual is
+ ri = b−Axi. Clearly, ri = Aǫi. Importantly, ri = −f ′(xi), so the
+ residual is the direction of the steepest descent.
+ The method of steepest descent is simple. If one has reached xi
+ then, by the above argument, xi+1 = xi + αri. The value of α is
+ chosen to reach the minimum along a line, i.e., f ′(xi+1) ri = 0.
+ For the quadratic form, one has
+ 0 =ri (b−Axi+1) = ri (ri −αAri), so α = ri ri
+ ri Ari .
+ Finally, we have ri+1 = b − Axi+1, and the recursion is completely
+ set up. Matrix-vector multiplication (MvM) twice per iteration!
+ Using p = Ari and ri+1 = ri −αp, MvM once per iteration.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Convergence
+ Formulations Propagators Cite
+ If the eigenvectors of A are vk (assumed normalized) with
+ eigenvalues λk, then we can write
+ ǫi = 
+ξkvk,
+ k
+ ri = Aǫi = 
+ξkλkvk.
+ k
+ Using this expansion in eigenvectors, we can write
+ α = kξ2
+ kλ2
+ k
+ k ξ2
+ kλ3
+ k 
+.
+ The recursion relation for ri then gives
+ ǫi+1 = 
+ξk(1 −αλk)vk,
+ ri+1 = 
+k
+ Defining ||v||2 = v.Av, we find
+ ||ǫi+1||2 = ||ǫi||2ω2 where ω2 = 1 −
+ SG
+ ξkλk(1 − αλk)vk.
+ k
+ ( kξ2
+ kλ2
+ k)2
+ ( kξ2
+ kλ3
+ k)( k ξ2
+ kλk) .
+ Introduction to LGT
+Outline RG LGT Fermions
+ Formulations Propagators Cite
+ The conjugate directions algorithm
+ In the steepest descent method our search direction was ri. We
+ switch to a set of mutually conjugate pi, i.e., pi Apj = δij. Taking
+ the iteration xi+1 = xi + αpi, the minimization condition becomes
+ ri+1 pi = 0. As a result, one finds
+ αi = pi ri
+ pi Api = pi Aǫi
+ pi Api .
+ Note that ǫi+1 = ǫi −αpi. Does the iteration converge in N steps?
+ Decompose ǫ0 = ξkdk. Since pk are mutually conjugate, we find
+ ξk = pk Aǫ0
+ pk Apk = pk A(ǫ0+ j<kαjpj)
+ pk Apk
+ =−αk.
+ So, the conjugate directions method cuts away the components of
+ ǫ0 one by one, and converges in N steps.
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Formulations Propagators Cite
+ The conjugate gradient construction
+ The CG corresponds to constructing the pi from the set of ri
+ already generated. If so, and previous steps gave residuals r0, r1,
+ , ri−1, then ri is orthogonal to the subspace spanned by them,
+ since pi rj = pi Aǫj = 0 if i < j. As a result, the ri are
+ orthogonal to each other, so rj is always a new search direction.
+ Since ri are linear combinations of previous residuals and Api, the
+ subspace spanned by them is also spanned by r0, Ar0, A2r0, etc..
+ This is called a Krylov space.
+ The conjugate directions can be constructed by a Gram-Schmidt
+ process (with “metric” A) in general, but because of the
+ orthogonalities here, one step suffices. As a result
+ pi+1 = ri+1 +βi+1pi, where βi+1 = ri+1 ri+1
+ ri ri .
+ The immense simplification is that the previous vectors do not
+ have to stored for Gram-Schmidt conjugation
+ SG
+ Introduction to LGT
+Outline RG LGT Fermions
+ Formulations Propagators Cite
+ The conjugate gradient algorithm
+ Putting everything together, the algorithm is initialized with
+ p0 = r0 =b−Ax0. Then the iteration is
+ α = ri ri
+ pi Api
+ xi+1 = xi +αpi
+ ri+1 = ri −αpi
+ β = ri+1 ri+1
+ ri ri
+ pi+1 = ri+1+βpi.
+ There is only one MvM per step, and two dot products (the ri ri
+ can be saved from the previous iteration). MvM is easy to
+ parallelize, but the dot products break parallel execution.
+ SG
+ Introduction to LGT https://theory.tifr.res.in/~sgupta/talks/11aslft.pdf
+Outline RG LGT Fermions
+ Formulations Propagators Cite
+ History of the conjugate gradient algorithm
+ “The method of conjugate gradients was developed independently
+ by E. Stiefel of the Institute of Applied Mathematics at Z¨ urich and
+ by M. R. Hestenes with the cooperation of J. B. Rosser, G.
+ Forsythe, and L. Paige of the Institute for Numerical Analysis,
+ National Bureau of Standards. The present account was prepared
+ jointly by M. R. Hestenes and E. Stiefel during the latter’s stay at
+ the National Bureau of Standards. The first papers on this method
+ were given by E. Stiefel [1952] and by M. R. Hestenes [1951].
+ Reports on this method were given by E. Stiefel and J. B. Rosser at
+ a Symposium on August 23-25, 1951. Recently, C. Lanczos [1952]
+ developed a closely related routine based on his earlier paper on
+ eigenvalue problem [1950]. Examples and numerical tests of the
+ method have been by R. Hayes, U. Hoschstrasser, and M. Stein.”
+ from Hestenes and Stiefel, 1952
