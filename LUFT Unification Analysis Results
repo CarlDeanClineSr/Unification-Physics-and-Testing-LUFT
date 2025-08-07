@@ -1,0 +1,24 @@
+# LUFT Unification Analysis Results
+
+This folder contains the results from automated analysis of SDR, SQUID, and cosmic .wav data:
+- **Spectrograms**: Visualize resonance and structure.
+- **CSV Tables**: Quantify peak frequencies, amplitudes, and LUFT resonance candidates.
+- **Markdown Summaries**: Document findings, link to lattice pressure, and compare with Einstein field equations.
+
+## Theory Links:
+- **Einstein's 1915/1919 Equations**: \( R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu} \)
+- **LUFT Extension**: \( R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} + \Lambda g_{\mu\nu} + P_L g_{\mu\nu} = \frac{8\pi G}{c^4} (T_{\mu\nu} + L_{\text{preon}}) \)
+- **Resonance Evidence**: 7,468 Hz and harmonics as universal lattice mode.
+
+## How to Use:
+1. Add new .wav data to your repo.
+2. Run the LUFT analysis script.
+3. Review results for universal resonance, lattice pressure effects, and scaling laws.
+
+## Next Steps:
+- Compare results to CERN datasets, Chandra/XMM-Newton data, and theory predictions.
+- Collaborate and document new signatures of unification in physics.
+
+---
+
+*LUFT: Unifying the micro and macro structure of reality through experiment, code, and theory.*
