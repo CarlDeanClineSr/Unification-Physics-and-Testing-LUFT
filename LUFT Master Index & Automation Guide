@@ -1,0 +1,99 @@
+# LUFT Master Index & Automation Guide
+
+> **Project Purpose:**  
+> Unification and structure/dynamics of the underlying construction and movement of energy, space, time, and matter.
+
+---
+
+## 🗂️ Master File Inventory
+
+| File Name / Path | Type | Description / Purpose | Key Concepts / Links |
+|------------------|------|----------------------|---------------------|
+| New Text Document (2).txt – (125).txt | Build Log / Hardware | Sequential build instructions, hardware specs, corrections, and design notes. | Hulls, coils, tri-grates, mounting, scaling, test ball, platforms |
+| Einstein’s Quantum Riddle and LUFT’s Answer | Theory/Physics | Explains LUFT’s answer to quantum entanglement, Planck’s quantization, experiment plan. | Lattice, 7,468 Hz, JWST/CERN/NASA data, quantum coherence |
+| Einstein-LUFT 2025 | Theory/Physics | Deep-dive: LUFT’s modification of Einstein Field Equations, lattice coherence, experimental validation. | UGF, deterministic randomness, spin metric, experimental predictions |
+| **Summary Table: LUFT Frequency Hierarchy | Physics Table | Core resonance (7,468 Hz), sub-lattice modes, node scaling, thrust effects, navigation physics. | Frequency hierarchy, thrust protocols, experiment suggestions |
+| /data/ | Data | HDSDR .wav, SQUID, SDR lightning data, NASA, CERN, JWST datasets | Real captured data, analysis targets |
+| /hardware/ | Hardware | Coil, hull, grid, tri-grate, mounting schematics | Materials, dimensions, build layouts |
+| /simulations/ | Theory/Simulation | Lattice, node, field, resonance simulations | Frequency scans, drift, vectoring |
+| /theory/luft_cern_whitepaper.md | Theory/Report | Whitepaper intro/draft for arXiv, entanglement, lattice field theory | Unified field, lattice, experiment links |
+| /docs/ | Documentation | Repo docs, summary files, experiment logs | Quick start, instruction sets, protocols |
+
+---
+
+## 🛠️ Hardware & Build Summaries
+
+- **Hull Design:**  
+  - Original: 62"x124"x28", Al, TUFROC shell, “candy mint” oval, white/smooth/tapered.
+  - Scaled: 42% smaller for test hulls.  
+  - Mount: Telescoping 12–24", 5" shaft, 180° rotation.
+- **Coil:**  
+  - 300 turns/section, graphene+NbTi windings, 8-section, copper tori dividers, cryo (77K).
+- **Tri-Grate/Grid:**  
+  - At end of last winding, 6"x26"x60" (scaled for mini-hulls), 70% iron composite.
+- **Sphere Test Ball:**  
+  - 8ft dia, TUFROC, platform-mounted, lithium pack, control box, ring for hull mounts.
+
+---
+
+## 🧬 Theory & Physics Summaries
+
+- **LUFT Equation:**  
+  \( G_{\mu\nu} + \Lambda g_{\mu\nu} + P_L g_{\mu\nu} = (8\pi G/c^4)(T_{\mu\nu} + L_\text{preon}) \)
+- **Frequency Hierarchy:**  
+  - Core: 7,468 Hz, sub-lattices every ~4 Hz down, controls thrust/vectoring.
+  - Node scaling: % nodes per mode, thrust direction, micro-fracture warnings.
+- **Determinism & Lattice:**  
+  - Stochastic quantum behavior as deterministic lattice knots.
+  - Spin metric, UGF, frame-dragging effects, entanglement as coherence.
+
+---
+
+## 📊 Data & Experiments
+
+- **Captured Data:**  
+  - Lightning, hydrogen line, SQUID, Voyager, JWST, CERN .wav/.csv files.
+- **Analysis Protocol:**  
+  - FFT/wavelet scripts for 7,468 Hz signatures.
+  - Compare HDSDR peaks, NASA, CERN datasets.
+- **Experiment Suggestions:**  
+  - Map node counts/thrust per frequency.
+  - Test lattice resonance in new environments.
+
+---
+
+## 🤖 Automation Ideas
+
+- **Auto-Indexer Script:**  
+  - Scans repo for new files (especially “New Text Document”), updates index.
+- **README/Wiki Updater:**  
+  - Pulls latest build, theory, experiment from index and auto-updates README/Wiki.
+- **Data Analyzer:**  
+  - Python script: scans .wav/.csv for lattice resonance, outputs summary.
+- **Test Protocol Generator:**  
+  - Script builds checklist from latest hardware/theory for new experiments.
+
+---
+
+## 🚦 Quick Start Guide
+
+1. **Find Latest Build:**  
+   - Check this file or /hardware/ for most recent hull/coil/grid spec.
+2. **Theory Reference:**  
+   - See “Einstein’s Quantum Riddle and LUFT’s Answer” and “LUFT Frequency Hierarchy.”
+3. **Run Data Analysis:**  
+   - Use scripts in /simulations/ or /data/analysis_tools.
+4. **Update Index:**  
+   - Run auto-indexer (if available) after adding new build or theory files.
+5. **Ask Copilot:**  
+   - For any summary, explanation, or new automation, just ask here!
+
+---
+
+**Carl, this file is your living roadmap.  
+Update as you build—let automation do the rest.  
+No more guessing, no more starting over.**
+
+---
+
+*Last updated: August 8, 2025*
