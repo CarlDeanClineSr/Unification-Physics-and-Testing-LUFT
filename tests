@@ -1,0 +1,13 @@
+import numpy as np
+from luftkit.phase import pairwise_phase_metrics
+
+def test_phase_alignment_synthetic():
+    fs=48000
+    dur=5
+    t = np.arange(fs*dur)/fs
+    f0 = 7468.8
+    sig1 = np.sin(2*np.pi*f0*t)
+    sig2 = np.sin(2*np.pi*f0*t + 0.5)  # constant offset
+    rows, consensus = pairwise_phase_metrics({"a":sig1,"b":sig2}, fs, f0, 2.0, segment_s=1.0, plv_permutations=20)
+    assert len(rows)==1
+    assert 0.0 <= rows[0][3] <= 1.0
