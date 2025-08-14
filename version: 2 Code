@@ -1,0 +1,65 @@
+version: 2
+report_dir: docs/reports/
+input: data/raw/HDSDR_*.wav
+
+band:
+  target_hz: 7468.779
+  search_bw_hz: 50.0
+  psd_low_hz: 500.0
+  psd_high_hz: 20000.0
+
+welch:
+  segment_s: 8.0
+  overlap: 0.5
+  window: hann
+
+significance:
+  alpha: 0.05
+  z_min: 6.0
+  local_baseline_window_hz: 150.0
+  exclude_bin_halfwidth_hz: 3.0
+  empirical:
+    enable: false
+    permutations: 200
+    block_len: 4096
+
+decoys:
+  time_scramble_block: 4096
+  permutations: 50
+
+phase:
+  enable: true
+  f0: 7468.779
+  bw_hz: 2.0
+  drift_max_rad_s: 0.01
+  plv_threshold: 0.6
+  plv_permutations: 200
+  segment_s: 30.0
+  detrend_phase: true
+
+harmonics:
+  enable: true
+  max_n: 12
+  include_subharmonics: true
+  odd_only: false
+  tolerance_hz: 0.4
+  enrichment:
+    enable: true
+    permutations: 300
+    freq_low: 2000.0
+    freq_high: 20000.0
+
+rationals:
+  enable: true
+  ratios: ["3/2","5/3","7/5","9/4"]
+  tolerance_hz: 0.5
+
+sidebands:
+  enable: true
+  delta_hz: 2.0
+  max_n: 5
+  tolerance_hz: 0.4
+
+drift:
+  track: true
+  max_ppm_per_hr: 5.0
