@@ -1,0 +1,138 @@
+from dataclasses import dataclass, field
+from typing import List, Optional, Dict, Any
+import yaml, glob, os
+from pathlib import Path
+from datetime import datetime
+
+@dataclass
+class WelchConfig:
+    segment_s: float = 8.0
+    overlap: float = 0.5
+    window: str = "hann"
+
+@dataclass
+class BandConfig:
+    target_hz: float
+    search_bw_hz: float
+    psd_low_hz: float
+    psd_high_hz: float
+
+@dataclass
+class EmpiricalConfig:
+    enable: bool = False
+    permutations: int = 200
+    block_len: int = 4096
+
+@dataclass
+class SignificanceConfig:
+    alpha: float = 0.05
+    z_min: float = 6.0
+    local_baseline_window_hz: float = 150.0
+    exclude_bin_halfwidth_hz: float = 3.0
+    empirical: EmpiricalConfig = field(default_factory=EmpiricalConfig)
+
+@dataclass
+class DecoyConfig:
+    time_scramble_block: int = 4096
+    permutations: int = 50
+
+@dataclass
+class PhaseConfig:
+    enable: bool = False
+    f0: float = 7468.779
+    bw_hz: float = 2.0
+    drift_max_rad_s: float = 0.01
+    plv_threshold: float = 0.6
+    plv_permutations: int = 200
+    segment_s: float = 30.0
+    detrend_phase: bool = True
+
+@dataclass
+class HarmonicEnrichmentConfig:
+    enable: bool = True
+    permutations: int = 300
+    freq_low: float = 2000.0
+    freq_high: float = 20000.0
+
+@dataclass
+class HarmonicsConfig:
+    enable: bool = True
+    max_n: int = 12
+    include_subharmonics: bool = True
+    odd_only: bool = False
+    tolerance_hz: float = 0.4
+    enrichment: HarmonicEnrichmentConfig = field(default_factory=HarmonicEnrichmentConfig)
+
+@dataclass
+class RationalsConfig:
+    enable: bool = True
+    ratios: List[str] = field(default_factory=lambda: ["3/2","5/3"])
+    tolerance_hz: float = 0.5
+
+@dataclass
+class SidebandsConfig:
+    enable: bool = True
+    delta_hz: float = 2.0
+    max_n: int = 5
+    tolerance_hz: float = 0.4
+
+@dataclass
+class DriftConfig:
+    track: bool = True
+    max_ppm_per_hr: float = 5.0
+
+@dataclass
+class RootConfig:
+    version: int
+    report_dir: str
+    input: str
+    band: BandConfig
+    welch: WelchConfig
+    significance: SignificanceConfig
+    decoys: DecoyConfig
+    phase: PhaseConfig
+    harmonics: HarmonicsConfig
+    rationals: RationalsConfig
+    sidebands: SidebandsConfig
+    drift: DriftConfig
+
+def _dict_to_dataclass(cls, d):
+    if isinstance(d, dict):
+        fieldtypes = {f.name: f.type for f in cls.__dataclass_fields__.values()}  # type: ignore
+        kwargs = {}
+        for k, v in d.items():
+            if k in fieldtypes:
+                ftype = fieldtypes[k]
+                # Handle nested dataclasses
+                if hasattr(ftype, "__dataclass_fields__"):
+                    kwargs[k] = _dict_to_dataclass(ftype, v)
+                else:
+                    kwargs[k] = v
+        return cls(**kwargs)
+    return d
+
+def load_config(path: str) -> RootConfig:
+    with open(path, "r") as f:
+        raw = yaml.safe_load(f)
+    # Build nested dataclasses manually
+    raw['band'] = _dict_to_dataclass(BandConfig, raw['band'])
+    raw['welch'] = _dict_to_dataclass(WelchConfig, raw['welch'])
+    raw['significance']['empirical'] = _dict_to_dataclass(EmpiricalConfig, raw['significance'].get('empirical', {}))
+    raw['significance'] = _dict_to_dataclass(SignificanceConfig, raw['significance'])
+    raw['decoys'] = _dict_to_dataclass(DecoyConfig, raw['decoys'])
+    raw['phase'] = _dict_to_dataclass(PhaseConfig, raw['phase'])
+    raw['harmonics']['enrichment'] = _dict_to_dataclass(HarmonicEnrichmentConfig, raw['harmonics'].get('enrichment', {}))
+    raw['harmonics'] = _dict_to_dataclass(HarmonicsConfig, raw['harmonics'])
+    raw['rationals'] = _dict_to_dataclass(RationalsConfig, raw['rationals'])
+    raw['sidebands'] = _dict_to_dataclass(SidebandsConfig, raw['sidebands'])
+    raw['drift'] = _dict_to_dataclass(DriftConfig, raw['drift'])
+    return _dict_to_dataclass(RootConfig, raw)
+
+def expand_inputs(pattern: str) -> List[str]:
+    return sorted(glob.glob(pattern))
+
+def ensure_report_dir(config: RootConfig) -> str:
+    ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
+    path = os.path.join(config.report_dir, ts)
+    os.makedirs(path, exist_ok=True)
+    return path
