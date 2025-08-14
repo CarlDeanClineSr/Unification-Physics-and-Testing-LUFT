@@ -1,0 +1,10 @@
+import numpy as np
+from luftkit.dsp import welch_psd, PsdParams
+
+def test_welch_shape():
+    fs = 48000
+    t = np.arange(fs*4)/fs
+    x = 0.1*np.random.randn(len(t)) + 0.5*np.sin(2*np.pi*7468.8*t)
+    f,p = welch_psd(x, PsdParams(fs, segment_s=2.0, overlap=0.5))
+    assert (f>0).any()
+    assert len(f)==len(p)
