@@ -1,0 +1,16 @@
+markdown name=docs/README_P2_MAGNONICS.md
+# LUFT Resonance Atlas — Phase 2 (Magnonics Scaffold)
+
+Implements:
+- Magnonics loader (NumPy + meta.json)
+- Sideband + base resonance peak detection
+- Harmonic & rational enrichment (optional)
+- Phase alignment metrics (multi-sensor)
+- Empirical null (permutation) for PLV and harmonic enrichment
+
+Run Example:
+python -m luftkit.pipeline_magnonics --config configs/default.yaml --magnonics_dir data/raw/magnonics/test_run
+
+Outputs in report_dir (e.g., docs/reports/<timestamp>/)
+
+Next: add real data, tune thresholds, preregister parameters prior to broad claims.
