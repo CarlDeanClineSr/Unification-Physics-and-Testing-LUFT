@@ -1,0 +1,46 @@
+import numpy as np
+from scipy import signal
+from dataclasses import dataclass
+from typing import Tuple
+
+@dataclass
+class PsdParams:
+    fs: int
+    segment_s: float
+    overlap: float
+    window: str = "hann"
+
+def bandpass(x, fs, low, high, order=4):
+    sos = signal.butter(order, [low, high], btype="bandpass", fs=fs, output="sos")
+    return signal.sosfiltfilt(sos, x)
+
+def notch(x, fs, freq, q=30):
+    b, a = signal.iirnotch(freq, q, fs)
+    return signal.filtfilt(b,a,x)
+
+def welch_psd(x: np.ndarray, params: PsdParams):
+    nperseg = int(params.segment_s * params.fs)
+    noverlap = int(nperseg * params.overlap)
+    win = params.window
+    f, p = signal.welch(x, params.fs, window=win, nperseg=nperseg, noverlap=noverlap, detrend='constant', scaling='density')
+    return f, p
+
+def local_robust_z(f, p, target_window_hz, exclude_halfwidth_hz):
+    # Compute z-scores per bin using local median/MAD
+    power_db = 10*np.log10(p + 1e-18)
+    z = np.zeros_like(power_db)
+    df = f[1]-f[0]
+    half = int(target_window_hz/df)
+    excl = int(exclude_halfwidth_hz/df)
+    for i in range(len(f)):
+        lo = max(0, i-half)
+        hi = min(len(f), i+half+1)
+        idx = np.concatenate([np.arange(lo, max(lo, i-excl)), np.arange(min(hi, i+excl+1), hi)])
+        if len(idx) < 10:
+            z[i] = 0
+            continue
+        seg = power_db[idx]
+        med = np.median(seg)
+        mad = np.median(np.abs(seg - med)) + 1e-12
+        z[i] = (power_db[i] - med)/(1.4826*mad)
+    return z, power_db
