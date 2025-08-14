@@ -1,0 +1,56 @@
+# LUFT Resonance Atlas (RF + Magnonics Scaffold)
+
+**Core Claim:**  
+LUFT proposes that the fundamental structure of reality is a quantized lattice of coherence nodes, manifesting a universal resonance near 7,468.779 Hz. This lattice underlies the emergence and interplay of space, time, energy, and matter. By combining reproducible RF and magnonics experiments—complete with falsifiable controls—we test for universal signatures, phase coherence, and harmonic patterns that could unify quantum and cosmic phenomena.
+
+---
+
+## 📜 Table of Contents
+
+- [Core Claims](#core-claim)
+- [Start Here Guide](START_HERE.md)
+- [How to Run the Analysis](#quick-start)
+- [Theory & Equations](docs/UNIFICATION_BRIDGE.md)
+- [Experiment Protocols](docs/magnonics_protocol.md)
+- [Results Summary Table](results/SUMMARY_TABLE.md)
+- [Null Results and Controls](results/SUMMARY_TABLE.md)
+- [Data Directory](data/raw/)
+- [Code Directory](src/luftkit/)
+- [Contact & Outreach](Core%20Discoveries%20LUFT)
+
+---
+
+## 🏁 Quick Start
+
+1. **Add .wav or magnonics data to `data/raw/`.**
+2. **Run:**  
+   `python -m luftkit.pipeline --config configs/default.yaml`
+3. **See output in `docs/reports/` and [results/SUMMARY_TABLE.md](results/SUMMARY_TABLE.md).**
+4. **For magnonics:**  
+   `python -m luftkit.pipeline_magnonics --config configs/default.yaml --magnonics_dir data/raw/magnonics/test_run`
+
+---
+
+## 🔬 What You’ll Find Here
+
+- **Theory**: How the LUFT lattice extends Einstein’s field equations and resolves quantum/cosmic puzzles.
+- **Experiments**: RF, magnonics, and oscillator protocols to detect universal resonance and coherence.
+- **Analysis Code**: Reproducible pipelines with decoy/null controls.
+- **Results**: Tables, plots, and markdown summaries—including null/control runs.
+
+---
+
+## 📊 See Results (Including Nulls!)
+
+- **Summary Table:** [results/SUMMARY_TABLE.md](results/SUMMARY_TABLE.md)
+- **Control/Null Results:** See “Decoy” and “Null” rows in the summary table.
+
+---
+
+## 💡 Philosophy
+
+Unification is tested through measurable resonance, phase coherence, and harmonic enrichment—bridging theory and experiment with open, falsifiable science.
+
+---
+
+*Contributions, questions, and collaborations are always welcome. Let’s challenge the fabric of reality together!*
