@@ -1,0 +1,11 @@
+import numpy as np
+from luftkit.stats import harmonic_targets, match_peaks_to_targets
+
+def test_harmonic_target_matching():
+    f0=100.0
+    targets = harmonic_targets(f0, max_n=5, include_subharmonics=False, odd_only=False)
+    peaks_freq = np.array([100.0,200.0,300.1])
+    peaks_z = np.array([10,9,8])
+    peaks_q = np.array([0.001,0.002,0.01])
+    rows, matches = match_peaks_to_targets(peaks_freq, peaks_z, peaks_q, targets, tol_hz=0.2, z_min=6, q_alpha=0.05)
+    assert matches >=2
