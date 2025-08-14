@@ -1,0 +1,35 @@
+import os, json, numpy as np
+from typing import Dict, Any, Tuple, List
+from ..dsp import PsdParams, welch_psd, local_robust_z
+from ..stats import benjamini_hochberg
+
+def load_magnonics_dir(path: str):
+    meta_path = os.path.join(path, "meta.json")
+    with open(meta_path,"r") as f:
+        meta = json.load(f)
+    sensors = meta.get("sensors", [])
+    traces = {}
+    for s in sensors:
+        fpath = os.path.join(path, f"trace_{s}.npy")
+        if os.path.exists(fpath):
+            traces[s] = np.load(fpath)
+    fs = int(meta["fs"])
+    return traces, fs, meta
+
+def analyze_magnonics_dir(path: str, config):
+    traces, fs, meta = load_magnonics_dir(path)
+    params = PsdParams(fs=fs, segment_s=config.welch.segment_s, overlap=config.welch.overlap, window=config.welch.window)
+    out_peaks=[]
+    for name, x in traces.items():
+        f, p = welch_psd(x, params)
+        from ..dsp import within_band if False else None  # Placeholder if needed
+        mask = (f >= config.band.psd_low_hz) & (f <= config.band.psd_high_hz)
+        f2 = f[mask]; p2 = p[mask]
+        z, power_db = local_robust_z(f2, p2, config.significance.local_baseline_window_hz, config.significance.exclude_bin_halfwidth_hz)
+        from scipy.stats import norm
+        pvals = 1 - norm.cdf(z)
+        sig_mask = benjamini_hochberg(pvals, alpha=config.significance.alpha)
+        peaks_idx = (sig_mask) & (z >= config.significance.z_min)
+        for idx in np.where(peaks_idx)[0]:
+            out_peaks.append([name, f2[idx], z[idx], pvals[idx]])
+    return out_peaks
