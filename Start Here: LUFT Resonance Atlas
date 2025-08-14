@@ -1,0 +1,36 @@
+# Start Here: LUFT Resonance Atlas
+
+Welcome to the LUFT (Lattice Unified Field Theory) Resonance Atlas project!
+
+**This is your entry point for theory, experiments, code, and results exploring the underlaying structure and dynamics of energy, space, time, and matter.**
+
+## 📚 Quick Links
+
+- **Core Claims & Overview:** [README.md](README.md)
+- **How to Run the Analysis:** [Quick Start](#quick-start)
+- **Theory & Equations:** [docs/UNIFICATION_BRIDGE.md](docs/UNIFICATION_BRIDGE.md)
+- **Experiment Protocols:** [docs/magnonics_protocol.md](docs/magnonics_protocol.md)
+- **Results Table:** [results/SUMMARY_TABLE.md](results/SUMMARY_TABLE.md) *(fill as new results come in)*
+- **Data:** [data/raw/](data/raw/) *(your .wav and magnonics files)*
+- **Code:** [src/luftkit/](src/luftkit/)
+- **Null/Decoy Results:** [results/SUMMARY_TABLE.md](results/SUMMARY_TABLE.md) *(see control rows)*
+
+## 🏁 Quick Start
+
+1. **Clone the repo and install dependencies (see README.md).**
+2. **Place your .wav or magnonics data in `data/raw/`.**
+3. **Run the main pipeline:**  
+   `python -m luftkit.pipeline --config configs/default.yaml`
+4. **(Optional) Magnonics analysis:**  
+   `python -m luftkit.pipeline_magnonics --config configs/default.yaml --magnonics_dir data/raw/magnonics/test_run`
+5. **View results in `docs/reports/` or the [Summary Table](results/SUMMARY_TABLE.md).**
+
+---
+
+**Need more?**  
+- Theory deep-dive: [docs/UNIFICATION_BRIDGE.md](docs/UNIFICATION_BRIDGE.md)
+- Contact & Outreach: [Core Discoveries LUFT](Core%20Discoveries%20LUFT)
+
+---
+
+*You’re on the cosmic frontier with the LUFT project—explore, challenge, and contribute!*
