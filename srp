@@ -1,0 +1,16 @@
+import numpy as np
+
+def time_scramble(x: np.ndarray, block: int = 1024) -> np.ndarray:
+    nblocks = len(x)//block
+    if nblocks <= 1:
+        return x.copy()
+    blocks = x[:nblocks*block].reshape(nblocks, block)
+    idx = np.arange(nblocks)
+    np.random.shuffle(idx)
+    y = blocks[idx].reshape(-1)
+    tail = x[nblocks*block:]
+    return np.concatenate([y, tail])
+
+def circular_shift(x: np.ndarray):
+    k = np.random.randint(0, len(x))
+    return np.roll(x, k)
