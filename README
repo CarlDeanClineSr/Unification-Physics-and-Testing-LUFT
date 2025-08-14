@@ -1,0 +1,31 @@
+# LUFT Resonance Atlas (RF + Magnonics Scaffold)
+
+This repository contains evolving experimental + analytical scaffolding to test a narrowband universal resonance hypothesis (base ~7468.779 Hz) across RF noise and magnonic / oscillator domains, with falsifiable controls.
+
+## Key Features
+- RF pipeline (peaks, harmonic enrichment, rational pattern matching)
+- Magnonics scaffold (NumPy traces + meta)
+- Phase alignment metrics (PLV, drift, empirical null)
+- Harmonic & rational enrichment with empirical random-set p-values
+- Config-driven (configs/default.yaml)
+- Decoys: time scrambling, (future) frequency shift integration
+
+## Quick Start
+1. Populate WAV data: data/raw/HDSDR_*.wav
+2. Run RF pipeline:
+   python -m luftkit.pipeline --config configs/default.yaml
+3. (Optional) Magnonics test:
+   python -m luftkit.pipeline_magnonics --config configs/default.yaml --magnonics_dir data/raw/magnonics/test_run
+
+Outputs: docs/reports/<timestamp>/
+
+## Next Steps
+- Add drift tracking per run
+- Integrate frequency shift decoy
+- Add amplitude falloff fit (1/n^α)
+- Expand empirical null for PSD max distribution
+
+## Philosophy
+Unification concepts are expressed as measurable residual stability, cross-domain coherence, and lattice enrichment statistics (see docs/UNIFICATION_BRIDGE.md).
+
+Contributions / iterations welcome. Preregister parameters before large‑scale claims.
