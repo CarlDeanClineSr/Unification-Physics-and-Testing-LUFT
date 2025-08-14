@@ -1,0 +1,26 @@
+markdown name=docs/UNIFICATION_BRIDGE.md
+# Bridging Unification Concepts to Measurements
+
+| Concept Layer | Operational Metric | File / Output |
+|---------------|--------------------|---------------|
+| Universal base resonance | Peak detection at f0 with FDR-controlled significance | peaks.csv |
+| Lattice / structured energy | Harmonic & rational enrichment p-values | harmonic_enrichment.csv |
+| Space-time stability | Drift of f0 (Hz/hour) & phase drift (rad/s) | peaks.csv (add drift), phase_pairs.csv |
+| Cross-domain universality (RF + Magnonics) | Co-occurrence of significant f0 peak across domains | cross_domain_summary.md |
+| Coherence of "energy movement" | PLV, coherence magnitude, group delay stability | phase_pairs.csv |
+| Artifact rejection | Decoy null distributions (z, PLV) | decoys/*.csv |
+| Scaling law of harmonics | Amplitude vs n fit to 1/n^α (estimate α) | harmonic_falloff.csv |
+| Lattice pressure (speculative) | Residual term in modified field equation fit (placeholder) | lattice_pressure.csv (future) |
+| Non-local correlation | Multi-station PLV & low-lag cross-correlation | phase_consensus.csv |
+| Theoretical constraint drift limit | | config prereg + drift_fail flag |
+
+## Drift Tracking
+Frequency drift rate = (f_end - f_start)/duration.  
+Flag if |drift_rate| > drift_max_ppm_per_hr * f0 * 1e-6 / hour.
+
+## Future Extensions
+- Bayesian model combining amplitude, coherence, phase drift into a single evidential score.
+- Cross-correlation of independent environmental logs vs peak strength (confound regression).
+- Null pooling across domains (RF permutations + magnonics decoys unified).
+
+*Version 0.1*
