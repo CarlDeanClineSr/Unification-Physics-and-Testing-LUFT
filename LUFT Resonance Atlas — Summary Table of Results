@@ -1,0 +1,21 @@
+# LUFT Resonance Atlas — Summary Table of Results
+
+| Date       | Experiment Type | Input File(s)            | Target Freq (Hz) | Peak Found? | Z-score | PLV/Coherence | Null/Decoy Result | Notes / Link to Report |
+|------------|----------------|--------------------------|------------------|------------|--------|---------------|-------------------|-----------------------|
+|2025-08-12  | RF PSD         | HDSDR_20250812_001.wav   | 7468.779         | Yes        | 7.8    | —             | No peak           | [Report](../docs/reports/20250812/) |
+|2025-08-12  | Magnonics      | test_run/trace_1.npy     | 7468.779         | No         | —      | —             | —                 | [Report](../docs/reports/20250812/) |
+|2025-08-14  | RF (Control)   | HDSDR_20250814_002.wav   | 7468.779         | No         | <3     | —             | —                 | [Report](../docs/reports/20250814/) |
+|2025-08-14  | Phase Align    | test_run/trace_2.npy     | 7468.779         | —          | —      | 0.55          | Control: 0.12     | [Report](../docs/reports/20250814/) |
+|…           | …              | …                        | …                | …          | …      | …             | …                 | …                      |
+
+---
+
+**Instructions:**
+- Add each experiment as a new row.
+- Fill in “Null/Decoy Result” for control runs (e.g., time scramble, dummy load).
+- Link to detailed reports in `/docs/reports/`.
+- Use this table to summarize both “hits” and null results for full transparency.
+
+---
+
+*Transparency and reproducibility are at the core of the LUFT Resonance Atlas. Show all outcomes, not just positive results!*
