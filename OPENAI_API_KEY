@@ -1,0 +1,21 @@
+import openai, os
+def summarize_file(filepath):
+    api_key = os.getenv("OPENAI_API_KEY")
+    if api_key:
+        openai.api_key = api_key
+        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            text = f.read(1000)
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+              {"role": "system", "content": "Summarize this file for a scientific researcher in 2 sentences."},
+              {"role": "user", "content": text}
+            ],
+            max_tokens=80
+        )
+        return response["choices"][0]["message"]["content"]
+    else:
+        # fallback
+        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            text = f.read(500)
+        return f"First 500 chars: {text.replace(chr(10),' ')[:100]}..."
