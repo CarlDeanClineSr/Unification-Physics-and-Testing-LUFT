@@ -1,0 +1,62 @@
+{
+  "mining_run_info": {
+    "timestamp": "2025-08-16 19:54:46",
+    "target_frequency_hz": 7468.0,
+    "frequency_tolerance_hz": 10.0,
+    "total_analysis_duration": "Simulated 60 seconds",
+    "sample_rate_hz": 48000,
+    "fft_window_size": 8192
+  },
+  "instrument_metadata": {
+    "name": "HARPS",
+    "location": "ESO La Silla Observatory, Chile",
+    "wavelength_range": "378-691 nm",
+    "resolution": "~115,000",
+    "description": "High Accuracy Radial velocity Planet Searcher"
+  },
+  "detection_results": {
+    "main_frequency_detections": 4,
+    "harmonic_detections": 6,
+    "subharmonic_detections": 5,
+    "anomaly_detections": 19,
+    "total_significant_peaks": 34
+  },
+  "major_findings": [
+    {
+      "type": "Main LUFT Frequency Detection",
+      "frequency_hz": 7458.984375,
+      "power_db": -51.665759296069055,
+      "significance": 69.13075985064832,
+      "note": "Strong detection at 7459.0 Hz, matching LUFT target frequency"
+    },
+    {
+      "type": "Strongest Harmonic",
+      "frequency_hz": 14935.546875,
+      "power_db": -52.19865829872162,
+      "harmonic_order": 2,
+      "significance": 77.19605026361309,
+      "note": "Harmonic order 2 detected"
+    },
+    {
+      "type": "Spectral Anomaly",
+      "frequency_hz": 3228.515625,
+      "power_db": -59.275000753119826,
+      "significance": 29.289745482184507,
+      "note": "Unexplained peak at 3228.5 Hz"
+    },
+    {
+      "type": "Spectral Anomaly",
+      "frequency_hz": 3234.375,
+      "power_db": -54.391685906620744,
+      "significance": 60.307226866086665,
+      "note": "Unexplained peak at 3234.4 Hz"
+    },
+    {
+      "type": "Spectral Anomaly",
+      "frequency_hz": 3240.234375,
+      "power_db": -58.92165823037771,
+      "significance": 31.12130462985997,
+      "note": "Unexplained peak at 3240.2 Hz"
+    }
+  ]
+}

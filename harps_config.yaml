@@ -1,0 +1,48 @@
+# HARPS LUFT/UFT Spectral Mining Configuration
+# Configuration for detecting LUFT frequencies and harmonics
+
+# Target frequency settings (LUFT primary frequency)
+target_frequency: 7468.0  # Hz - main LUFT frequency from repository config
+frequency_tolerance: 10.0  # Hz - ±10 Hz search window as specified
+
+# Analysis parameters
+sample_rate: 48000  # Hz - sample rate for simulated data
+fft_window_size: 8192  # FFT window size for frequency resolution
+overlap: 0.5  # Window overlap for Welch's method
+
+# Harmonic and subharmonic detection
+harmonic_orders: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+subharmonic_orders: [0.5, 0.25, 0.125, 0.0625]
+
+# Statistical significance
+significance_threshold: 6.0  # Z-score threshold for peak detection
+alpha: 0.05  # Statistical significance level
+
+# Output settings
+output_dir: "harps_mining_results"
+plot_frequency_range: [7400, 7600]  # Hz range for detailed LUFT region plots
+
+# Instrument metadata (HARPS observatory)
+instrument_metadata:
+  name: "HARPS"
+  location: "ESO La Silla Observatory, Chile"
+  wavelength_range: "378-691 nm"
+  resolution: "~115,000"
+  description: "High Accuracy Radial velocity Planet Searcher"
+
+# Simulation parameters (for demo data generation)
+simulation:
+  duration: 60  # seconds
+  noise_level: 0.1  # noise amplitude
+  main_signal_amplitude: 0.05  # main LUFT frequency amplitude
+  harmonic_base_amplitude: 0.02  # base amplitude for harmonics
+  subharmonic_base_amplitude: 0.01  # base amplitude for subharmonics
+  
+# Additional anomaly frequencies for testing
+anomaly_frequencies: [3234.5, 5671.2, 9876.3, 12345.6, 14935.558]  # Hz
+
+# Processing options
+processing:
+  window_type: "hann"  # FFT window type
+  detrend: true  # Remove DC component
+  normalize: true  # Normalize power spectrum

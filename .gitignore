@@ -1,0 +1,10 @@
+# Ignore large image files and cache
+*.png
+*.jpg
+*.jpeg
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore large result files but keep the structure
+harps_mining_results/*.png
