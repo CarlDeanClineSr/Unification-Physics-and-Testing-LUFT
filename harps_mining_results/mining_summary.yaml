@@ -1,0 +1,104 @@
+detection_results:
+  anomaly_detections: 19
+  harmonic_detections: 6
+  main_frequency_detections: 4
+  subharmonic_detections: 5
+  total_significant_peaks: 34
+instrument_metadata:
+  description: High Accuracy Radial velocity Planet Searcher
+  location: ESO La Silla Observatory, Chile
+  name: HARPS
+  resolution: ~115,000
+  wavelength_range: 378-691 nm
+major_findings:
+- frequency_hz: !!python/object/apply:numpy._core.multiarray.scalar
+  - &id001 !!python/object/apply:numpy.dtype
+    args:
+    - f8
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    AAAAAPwivUA=
+  note: Strong detection at 7459.0 Hz, matching LUFT target frequency
+  power_db: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    8s/BmTfVScA=
+  significance: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    hYqQXl5IUUA=
+  type: Main LUFT Frequency Detection
+- frequency_hz: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    AAAAAMYrzUA=
+  harmonic_order: 2
+  note: Harmonic order 2 detected
+  power_db: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    TwuYom0ZSsA=
+  significance: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    yaVnFoxMU0A=
+  type: Strongest Harmonic
+- frequency_hz: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    AAAAAAg5qUA=
+  note: Unexplained peak at 3228.5 Hz
+  power_db: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    NIOEOTOjTcA=
+  significance: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    biWKwixKPUA=
+  type: Spectral Anomaly
+- frequency_hz: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    AAAAAMBEqUA=
+  note: Unexplained peak at 3234.4 Hz
+  power_db: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    v56HwyIyS8A=
+  significance: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    vCW/NVMnTkA=
+  type: Spectral Anomaly
+- frequency_hz: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    AAAAAHhQqUA=
+  note: Unexplained peak at 3240.2 Hz
+  power_db: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    38ea5fh1TcA=
+  significance: !!python/object/apply:numpy._core.multiarray.scalar
+  - *id001
+  - !!binary |
+    Ghr60Q0fP0A=
+  type: Spectral Anomaly
+mining_run_info:
+  fft_window_size: 8192
+  frequency_tolerance_hz: 10.0
+  sample_rate_hz: 48000
+  target_frequency_hz: 7468.0
+  timestamp: '2025-08-16 19:54:46'
+  total_analysis_duration: Simulated 60 seconds
