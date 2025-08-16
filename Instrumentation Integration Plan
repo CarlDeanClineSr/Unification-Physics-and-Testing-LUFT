@@ -1,0 +1,74 @@
+# Instrumentation Integration Plan
+
+**LUFT/UFT Project — Instrumentation, Data Sources, and Pipeline Adaptation**
+
+---
+
+## Objective
+
+To ensure the LUFT/UFT mining toolkit and analysis pipeline are fully modular, scalable, and ready for rapid integration of new missions, telescopes, detectors, and spectroscopic methods—enabling cross-comparison and discovery of unification signatures across the widest possible spectrum of astrophysical and laboratory data.
+
+---
+
+## 1. Primary Instruments & Data Sources
+
+### Space-Based Observatories
+- **JWST** (James Webb Space Telescope, NIRSpec, MIRI, NIRCam)
+- **HST** (Hubble Space Telescope, STIS, COS, WFC3)
+- **Twinkle Space Telescope** (planned for exoplanet and atmospheric spectroscopy)
+- **TESS, Kepler** (time-domain photometry, transits)
+- **FUSE** (Far Ultraviolet Spectroscopic Explorer)
+
+### Ground-Based & Other
+- **SDSS** (Sloan Digital Sky Survey)
+- **ESO/VLT, Gemini, Subaru** (high-res optical/IR)
+- **LIGO/Virgo/KAGRA** (gravitational wave strain)
+- **CERN ATLAS/CMS** (particle collisions, anti-matter)
+- **Fermi-LAT, AMS-02** (gamma/cosmic ray)
+- **Any SDR, SQUID, magnetometer, or lab-based spectral data**
+
+---
+
+## 2. Data Pipeline Adaptation
+
+- **Modular Data Loader**: Each instrument/mission has a dedicated loader module (FITS, CSV, HDF5, API fetch, etc.).
+- **Instrument Metadata**: All relay capsules and analysis scripts must record instrument, detector, wavelength range, and calibration context.
+- **Automated Format Detection**: Scripts scan file headers or metadata to auto-select the correct parser.
+- **Extensible Analysis Functions**: Signature mining, FFT, burst search, and phase analysis are instrument-agnostic, operating on normalized (wavelength, flux/intensity) arrays.
+- **Relay Capsule Standardization**: Each output capsule includes a “Data Source/Instrument” section for traceability.
+
+---
+
+## 3. Integration Guidelines
+
+- **Adding a New Instrument/Telescope**
+  1. Implement or adapt a loader for data format (see `/tools/loaders/`).
+  2. Register the instrument in the pipeline config (`/configs/instruments.yaml`).
+  3. Document supported spectral/temporal ranges and unique calibration steps.
+  4. Test with a known object/spectrum for ground truth.
+  5. Relay capsule must reference instrument and method.
+
+- **Community Contributions**
+  - Pull requests adding new data sources or loaders must provide a sample script and data, plus a capsule showing successful mining/visualization for at least one LUFT signature.
+
+---
+
+## 4. Current Coverage & Priorities
+
+- **JWST, HST, Fermi-LAT:** Supported and in pipeline.
+- **Twinkle:** Stub ready for future data—see mining code.
+- **CERN, LIGO:** Analysis modules in progress.
+- **Other sources:** Open for extension; see `/tools/` and `/data/`.
+
+---
+
+## 5. Roadmap
+
+- [ ] Complete generic data loader stubs for Twinkle, SDSS, and ESO.
+- [ ] Expand mining toolkit for time-domain and multi-wavelength data.
+- [ ] Integrate latest calibration and reduction techniques as published.
+- [ ] Maintain an active list of new/relevant instruments in this document.
+
+---
+
+_This plan is living—update as new missions, methods, and discoveries arise!_
