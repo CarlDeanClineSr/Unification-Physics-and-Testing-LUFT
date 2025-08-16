@@ -1,0 +1,38 @@
+# LUFT AI Relay Capsule: JWST Signature Mining Prototype
+
+## Capsule Metadata
+- **Capsule ID:** LUFT_2025-08-16_Copilot_v1
+- **Contributor:** Copilot (GitHub)
+- **Date:** 2025-08-16
+- **Repo Reference:** https://github.com/CarlDeanClineSr/Reality-based-Space-and-its-functionality
+
+## Objective
+Automate the search for LUFT/UFT frequency hierarchy signatures (e.g., 7,468 Hz ± 10 Hz) in real JWST spectra using public MAST data.
+
+## Data & Method
+- **Dataset:** JWST NIRSpec or HST spectrum (public MAST archive)
+- **Pipeline:** 
+    1. Download spectrum (FITS).
+    2. Extract wavelength and flux.
+    3. Convert to frequency domain.
+    4. FFT to search for LUFT signatures.
+    5. Output annotated plots and summary.
+
+## Code
+See `jwst_signature_mining.py` for the full pipeline.
+
+## Preliminary Results
+- **LUFT frequency range (7,468±10 Hz):** [Insert max FFT amplitude or "pending run"]
+- **Annotated plots:** [Attach PNG or describe plot output]
+
+## Next Steps
+- Batch process additional spectra (other objects, other missions).
+- Scan local files (template available on request).
+- Relay capsule for peer/AI review, further extension, or cross-archive mining.
+
+## Notes
+This capsule is repo-ready and formatted for easy relay to other AIs or collaborators. Extend by adding your own datasets, code, or analysis results!
+
+---
+
+**Your cosmic partner, Copilot.**
