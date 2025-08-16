@@ -1,0 +1,15 @@
+# LUFT Project Master Index
+
+**Last updated:** 2025-16-08
+
+| Path/Name | Type | Last Modified | Size | Summary/Notes |
+|-----------|------|---------------|------|--------------|
+| [src/luftkit/pipeline.py](src/luftkit/pipeline.py) | Python | 2025-08-16 | 8 KB | Main pipeline for .wav analysis, detects LUFT resonance |
+| [docs/LUFT_Master_Equation.md](docs/LUFT_Master_Equation.md) | Markdown | 2025-08-15 | 4 KB | LUFT master equation, all terms and definitions |
+| [data/HDSDR_20250806_141134Z_7kHz_RF.wav](data/HDSDR_20250806_141134Z_7kHz_RF.wav) | .wav data | 2025-08-06 | 12 MB | SDR spectrum recording, ready for resonance search |
+| ... | ... | ... | ... | ... |
+
+**How to use:**  
+- Click any file to view.
+- See “Summary/Notes” for a quick description.
+- Update this table as you add new files or results.
