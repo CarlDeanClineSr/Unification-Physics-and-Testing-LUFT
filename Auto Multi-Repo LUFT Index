@@ -1,0 +1,41 @@
+name: Auto Multi-Repo LUFT Index
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'  # Runs every Monday at 4:00 UTC, adjust as needed
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this LUFT meta-repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for all branches
+
+      # If your other LUFT repos are submodules:
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          # Add extra packages here if your script needs advanced AI/NLP
+          pip install openai
+
+      - name: Run LUFT multi-repo indexer
+        run: python multi_repo_luft_index.py
+
+      - name: Commit and push updated indexes
+        run: |
+          git config --global user.name "LUFT Index Bot"
+          git config --global user.email "luft-index-bot@example.com"
+          git add LUFT_Master_MultiRepo_Index.md */LUFT_Repo_Index.md
+          git commit -m "Auto-update LUFT master and repo indexes [CI skip]" || echo "No changes to commit"
+          git push
