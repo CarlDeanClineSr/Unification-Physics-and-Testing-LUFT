@@ -1,0 +1,43 @@
+"""
+Twinkle Space Telescope — Data Loader and Mining Stub
+Adapt this template when Twinkle spectra become available.
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def load_twinkle_spectrum(file_path):
+    # Placeholder: Replace with real Twinkle data format (e.g., FITS, CSV)
+    # Example: spectrum = np.loadtxt(file_path, delimiter=',')
+    # Wavelength in nm, flux in arbitrary units
+    wavelength = np.linspace(500, 2500, 1000)  # 500–2500 nm (example range)
+    flux = np.random.normal(1.0, 0.1, 1000)    # Simulated flat spectrum
+    return wavelength, flux
+
+def mine_twinkle_for_luft(wavelength, flux, base_freq=7468, range_hz=10):
+    # Convert wavelength (nm) to frequency (Hz)
+    c = 2.99792458e17  # nm/s
+    freq = c / wavelength
+    freq_sorted = np.sort(freq)
+    flux_sorted = flux[np.argsort(freq)]
+    fft_flux = np.fft.rfft(flux_sorted - np.mean(flux_sorted))
+    fft_freq = np.fft.rfftfreq(len(freq_sorted), d=(freq_sorted[1] - freq_sorted[0]))
+    luft_range = (fft_freq >= (base_freq - range_hz)) & (fft_freq <= (base_freq + range_hz))
+    luft_peaks = np.abs(fft_flux)[luft_range]
+    plt.figure(figsize=(10,4))
+    plt.plot(fft_freq, np.abs(fft_flux), label='FFT amplitude')
+    plt.axvspan(base_freq-range_hz, base_freq+range_hz, color='red', alpha=0.3, label='LUFT freq range')
+    plt.xlabel("Frequency (Hz)")
+    plt.ylabel("FFT Amplitude")
+    plt.title("Twinkle Spectrum LUFT Signature Mining")
+    plt.legend()
+    plt.show()
+    return {
+        'luft_peak_amplitude': float(np.max(luft_peaks) if luft_peaks.size else 0),
+        'fft_freq': fft_freq.tolist(),
+        'fft_amplitude': np.abs(fft_flux).tolist()
+    }
+
+# Example usage:
+# wavelength, flux = load_twinkle_spectrum('twinkle_example.csv')
+# results = mine_twinkle_for_luft(wavelength, flux)
