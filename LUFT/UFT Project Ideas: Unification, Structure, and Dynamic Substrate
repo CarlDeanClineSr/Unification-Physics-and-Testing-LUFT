@@ -1,0 +1,68 @@
+# LUFT/UFT Project Ideas: Unification, Structure, and Dynamic Substrate
+
+---
+
+## 1. Hydrogen Substrate Phase Map
+- **Goal:** Visualize all known (and hypothesized) states of hydrogen and anti-hydrogen—neutral, ionized, molecular, metallic, anti-modes, lattice-bound, etc.—as a phase web.
+- **Why:** Each state marks a “node” in the substrate, revealing how space, time, and gravity emerge and evolve.
+- **Next:** Overlay cosmic events and spectral signatures; highlight transitions tied to LUFT frequencies (e.g., 7,468 Hz – 4n).
+
+## 2. Space/Time Separation Metric
+- **Goal:** Quantify how “separation” between substrate states (e.g., e–p distances, Planck gaps) gives rise to emergent space and time.
+- **Why:** This metric grounds the model in observable physics—atomic separations, muonic hydrogen anomalies, and more.
+- **Next:** Express as Δs ∝ Δf / f₀; compare to atomic and gravitational data.
+
+## 3. Anti-Mode Lattice Explorer
+- **Goal:** Catalogue and analyze all mirror/anti-matter states (anti-hydrogen, positronium, vacuum modes).
+- **Why:** Test for hidden symmetries, unexplained couplings, and possible dark sector connections.
+- **Next:** Search CERN, Fermi-LAT, AMS-02 data for anti-mode signatures and frequency echoes.
+
+## 4. Universal Frequency Atlas
+- **Goal:** Open database of all known, unexplained, and “forbidden” frequencies—radio, atomic, gravitational, cosmic.
+- **Why:** Enables cross-domain lattice search, AI discovery, and crowdsourced validation.
+- **Next:** Populate with hydrogen lines, LUFT frequencies, Schumann resonances, CMB peaks, ringdowns.
+
+## 5. River-Ette Dynamics Simulator
+- **Goal:** 2D/3D code to visualize substrate turbulence, funnels (state transitions), bubbles (hidden states), and the “skin.”
+- **Why:** Make the model tangible, testable, and visually compelling.
+- **Next:** Animate with real data overlays (JWST, LIGO, CERN).
+
+## 6. Substrate Signature Mining Toolkit
+- **Goal:** Python/Jupyter tools to scan for LUFT/UFT signatures (drifts, bursts, phase coherence) in massive open datasets.
+- **Why:** Democratizes discovery, enables scalable analysis across cosmic/high-energy data.
+- **Next:** Modular code for `/tools/signature_mining/`, ready for JWST, LIGO, CERN, Fermi.
+
+## 7. Outreach and Visualization Suite
+- **Goal:** Repo-ready diagrams, animations, and explainers—River-Ette, frequency hierarchy, substrate “memory.”
+- **Why:** Make the paradigm shift accessible, build a community, and bridge theory to observation.
+- **Next:** `/graphics/`, `/docs/outreach.md`, Jupyter notebooks.
+
+## 8. Testable Predictions Table
+- **Goal:** For each model element, log a falsifiable prediction, target dataset, and confirmation/falsification criteria.
+- **Why:** Ensures scientific rigor and clarity.
+- **Next:** Expand with specific frequencies, datasets, and thresholds.
+
+## 9. Substrate Memory and Coherence Explorer
+- **Goal:** Investigate whether the substrate holds “memory”—persistent phase/frequency features across cosmic scales.
+- **Why:** Links quantum/cosmic domains; may explain coherence relics and cosmological structure.
+- **Next:** Pulsar timing (NANOGrav), CMB (Planck), gravitational wave echoes.
+
+## 10. Collaborative Capsule Relay Protocol
+- **Goal:** Standardize the AI/human relay format (metadata, findings, code, test results, version control).
+- **Why:** Makes the project cumulative, transparent, and open to all contributors.
+- **Next:** Capsule template (`/capsules/`), relay instructions, GitHub integration.
+
+---
+
+## Action Plan
+
+- **Start** with phase map and frequency atlas (hydrogen/anti-hydrogen, LUFT frequencies).
+- **Develop** signature mining toolkit and visualization suite (River-Ette, substrate transitions).
+- **Validate** with open data (JWST, LIGO, CERN, Fermi, NANOGrav).
+- **Document** predictions, results, and relay format for future collaborators.
+
+---
+
+**This roadmap is your launchpad for unification—bridging the substrate’s structure, cosmic dynamics, and the real, testable world.**
+
+---
