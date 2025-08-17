@@ -1,0 +1,106 @@
+"""
+"""
+LUFT Frequency Sweep Script: CERN, JWST, LIGO Multi-Dataset Analyzer
+
+Goal: Find all significant frequency peaks, subharmonics, and fine structure—not just 7,xxx Hz.
+"""
+
+import numpy as np
+from scipy.signal import find_peaks, welch
+import matplotlib.pyplot as plt
+
+def sweep_frequencies(signal, fs, freq_min=1, freq_max=None, nperseg=4096, threshold_sigma=6.0):
+    """
+    Finds all significant peaks and subharmonics in a signal.
+    Returns a table of (frequency, prominence, width, harmonics, subharmonics).
+    """
+    f, Pxx = welch(signal, fs=fs, nperseg=nperseg)
+    Pxx_db = 10 * np.log10(Pxx + 1e-12)
+    peaks, props = find_peaks(Pxx_db, prominence=threshold_sigma)
+    results = []
+    for idx in peaks:
+        freq = f[idx]
+        if (freq_min is None or freq >= freq_min) and (freq_max is None or freq <= freq_max):
+            results.append({
+                'frequency_hz': freq,
+                'power_db': Pxx_db[idx],
+                'prominence': props['prominences'][np.where(peaks == idx)[0][0]],
+                'left_width': props['left_bases'][np.where(peaks == idx)[0][0]],
+                'right_width': props['right_bases'][np.where(peaks == idx)[0][0]],
+            })
+    return results
+
+def cross_reference_frequencies(found_freqs, reference_freqs, tolerance=0.5):
+    """
+    Cross-reference found frequencies with reference table (e.g., hydrogen, LUFT, anomalies).
+    """
+    matches = []
+    for f in found_freqs:
+        for ref in reference_freqs:
+            if abs(f['frequency_hz'] - ref) <= tolerance:
+                matches.append({**f, 'reference_match': ref})
+    return matches
+
+# Example usage (pseudo, replace with real data loading):
+# signals = {'cern': cern_signal, 'jwst': jwst_signal, 'ligo': ligo_signal}
+# fs_dict = {'cern': 1e6, 'jwst': 1e3, 'ligo': 4096}
+# reference_freqs = [7468.0, 1420.40575177]  # hydrogen, LUFT, etc.
+# all_results = {}
+# for name, sig in signals.items():
+#     peaks = sweep_frequencies(sig, fs_dict[name])
+#     matches = cross_reference_frequencies(peaks, reference_freqs)
+#     all_results[name] = {'peaks': peaks, 'matches': matches}
+
+# Visualize and save results as needed.
+
+
+Goal: Find all significant frequency peaks, subharmonics, and fine structure—not just 7,xxx Hz.
+"""
+
+import numpy as np
+from scipy.signal import find_peaks, welch
+import matplotlib.pyplot as plt
+
+def sweep_frequencies(signal, fs, freq_min=1, freq_max=None, nperseg=4096, threshold_sigma=6.0):
+    """
+    Finds all significant peaks and subharmonics in a signal.
+    Returns a table of (frequency, prominence, width, harmonics, subharmonics).
+    """
+    f, Pxx = welch(signal, fs=fs, nperseg=nperseg)
+    Pxx_db = 10 * np.log10(Pxx + 1e-12)
+    peaks, props = find_peaks(Pxx_db, prominence=threshold_sigma)
+    results = []
+    for idx in peaks:
+        freq = f[idx]
+        if (freq_min is None or freq >= freq_min) and (freq_max is None or freq <= freq_max):
+            results.append({
+                'frequency_hz': freq,
+                'power_db': Pxx_db[idx],
+                'prominence': props['prominences'][np.where(peaks == idx)[0][0]],
+                'left_width': props['left_bases'][np.where(peaks == idx)[0][0]],
+                'right_width': props['right_bases'][np.where(peaks == idx)[0][0]],
+            })
+    return results
+
+def cross_reference_frequencies(found_freqs, reference_freqs, tolerance=0.5):
+    """
+    Cross-reference found frequencies with reference table (e.g., hydrogen, LUFT, anomalies).
+    """
+    matches = []
+    for f in found_freqs:
+        for ref in reference_freqs:
+            if abs(f['frequency_hz'] - ref) <= tolerance:
+                matches.append({**f, 'reference_match': ref})
+    return matches
+
+# Example usage (pseudo, replace with real data loading):
+# signals = {'cern': cern_signal, 'jwst': jwst_signal, 'ligo': ligo_signal}
+# fs_dict = {'cern': 1e6, 'jwst': 1e3, 'ligo': 4096}
+# reference_freqs = [7468.0, 1420.40575177]  # hydrogen, LUFT, etc.
+# all_results = {}
+# for name, sig in signals.items():
+#     peaks = sweep_frequencies(sig, fs_dict[name])
+#     matches = cross_reference_frequencies(peaks, reference_freqs)
+#     all_results[name] = {'peaks': peaks, 'matches': matches}
+
+# Visualize and save results as needed.
