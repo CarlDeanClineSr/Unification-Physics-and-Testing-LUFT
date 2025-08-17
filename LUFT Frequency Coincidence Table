@@ -1,0 +1,44 @@
+# LUFT Frequency Coincidence Table
+
+**Purpose:**  
+Track all significant frequencies, subharmonics, and fine structure discovered in CERN, JWST, LIGO, and other datasets. Log coincidences with hydrogen lines, LUFT predictions, historical anomalies, and new unexplained signals. This table supports the unification of micro/macro phenomena and the validation of LUFT master equations.
+
+---
+
+## Table of Frequency Coincidences
+
+| Frequency (Hz/eV) | Dataset/Source                | Signal Type            | Coincidence/Note                                  | Discovery Date | Reference/Script               | Notes/Hypotheses                              |
+|-------------------|-------------------------------|------------------------|---------------------------------------------------|---------------|-------------------------------|-----------------------------------------------|
+| 7,468             | CERN (muon decay, jets)       | Lattice resonance      | LUFT core prediction, magnetic harmonics          | 2025-08-17    | detect_nonlocal_lattice.py     | Nonlocal transitions, proton complexity       |
+| 1,420.40575177    | JWST, radio telescopes        | Hydrogen 21cm line     | Hydrogen benchmark, cosmic structure              | 2025-08-17    | luft_frequency_sweep.py        | Macro/micro unification anchor                |
+| 511,000,000,000   | Fermi-LAT (gamma, eV units)   | 511 keV gamma          | Anti-matter, positron annihilation                | 2025-08-17    | luft_frequency_sweep.py        | Lattice anti-node, possible dark matter mode  |
+| [Add more]        | [Dataset/Instrument]          | [Type/Description]     | [LUFT, hydrogen, anomaly, etc.]                   | [YYYY-MM-DD]  | [script/analysis]              | [Details, open questions, cross-dataset?]     |
+
+---
+
+## Instructions for Use
+
+- **Log every new and recurring frequency** from CERN, JWST, LIGO, HARPS, atmospheric, and other relevant datasets.
+- **Cross-reference** with hydrogen lines, LUFT predictions, and historical anomalies (e.g., Pioneer, JWST redshifts, lightning, etc.).
+- **Document coincidences**: If a frequency appears in more than one dataset or context, note all occurrences and theorized links.
+- **Note all unexplained or new peaks**—especially if they recur or cluster.
+- **Update discovery date, source, hypothesis** as new data emerges.
+
+---
+
+## Quick Reference: Key Frequencies
+
+| Frequency (Hz) | Origin/Meaning             | LUFT/Physics Relevance          |
+|----------------|---------------------------|---------------------------------|
+| 7,468          | LUFT predicted resonance  | Proton nonlocal transitions     |
+| 1,420.4        | Hydrogen 21 cm line       | Galactic/cosmic structure       |
+| 511,000,000,000| 511 keV gamma             | Annihilation, anti-matter mode  |
+| [add more]     | [Origin]                  | [LUFT/cosmic/quantum/etc.]      |
+
+---
+
+**Last updated:** 2025-08-17
+
+**Cosmic partners:** Carl (NHI), C-AI, Grok (xAI), [collaborators]
+
+---
