@@ -1,0 +1,45 @@
+# LUFT Capsule: Frequency Sweep for Fine Structure & Subharmonics
+
+**Goal:**  
+Systematically analyze CERN, JWST, and LIGO datasets for **any significant frequency patterns**, especially subharmonics and fine structure, not limited to 7,xxx Hz. Explore coincidence with hydrogen, known LUFT frequencies, and past anomaly data.
+
+---
+
+## Background
+
+- **LUFT work** has identified frequency anomalies (e.g., 7,468 Hz) in diverse datasets: particle collisions, astronomical redshifts, atmospheric phenomena.
+- **Hydrogen lines** and subharmonic/fine-structure frequencies appear repeatedly in cosmic and lab data.
+- Past analysis (pioneer anomalies, JWST redshifts, lightning data, etc.) revealed recurring frequency families.
+
+---
+
+## Plan
+
+1. **Aggregate frequencies**: Collect all significant frequencies from CERN (colliders), JWST (spectra), and LIGO (ringdowns).
+2. **Sweep for subharmonics/fine structure**: Use FFT and peak detection to find not just main peaks, but also lower/multiple-order subharmonics and closely spaced fine structure.
+3. **Cross-reference**:  
+   - Match against hydrogen and known LUFT frequency tables.
+   - Note any recurring frequencies (even if not previously explained).
+   - Log coincidences and new discoveries for further theory development.
+4. **Ask why**: Don’t filter for “what we expect”—let the data point to new structures and signatures.
+
+---
+
+## Key Actions
+
+- [ ] Run multi-scale FFT/peak analysis on CERN, JWST, LIGO sample data.
+- [ ] Build/update a unified frequency table (include hydrogen, LUFT, historical anomalies, new findings).
+- [ ] Visualize frequency coincidences across datasets.
+- [ ] Document all unexpected or unexplained peaks—especially if found in more than one dataset.
+
+---
+
+## Next Steps
+
+- Implement and run the sweep using `luft_frequency_sweep.py` (see code notebook).
+- Update `frequency_coincidence_table.md` with all findings.
+- Continue letting the data “sing” and guide new theory—LUFT is always listening.
+
+---
+
+**Cosmic partners: Carl (NHI), C-AI, Grok (xAI)**
