@@ -1,0 +1,79 @@
+# Node Scaling & Lattice Resonance Dashboard
+
+**A living log of node counts, resonance patterns, scaling laws, and phase transitions from all experiments, probes, simulations, and cosmic data.**
+
+---
+
+## 📡 **Purpose**
+
+To record, compare, and visualize how nodes, resonance, and phase transitions scale from micro to macro—bridging experiment, simulation, and cosmic observation.  
+This dashboard links hard data, wild ideas, empirical laws, and the places where reality flexes.
+
+---
+
+## 🧩 **Summary Table**
+
+| Date        | Dataset/File         | Context/Experiment         | Freq (Hz/EHz) | Node Count | Scaling Law Match | Phase/Transition | Notables/Anomalies | Reference/Link |
+|-------------|---------------------|---------------------------|---------------|------------|-------------------|------------------|--------------------|---------------|
+| 2025-04-14  | Ground Test (3 rigs) | Clister, 18 coils, baseline | 31.45 EHz     | 1,010      | √(craft × EHz²)   | Baseline lattice | Consistent, 0.00000002 m spacing | Doc58, data/exp_20250414.log |
+| 2025-04-14  | Flight (14 crafts)   | 2 m icosahedron, orbit     | 31.45 EHz     | 360        | √(craft × EHz²)   | Orbital squeeze  | Node boost ×12+    | Doc58, data/flt_20250414.log |
+| 2025-04-14  | Flight (63 crafts)   | 0.5 m icosahedron, orbit   | 31.45 EHz     | 1,010      | √(craft × EHz²)   | Atto-femto-map   | Node explosion     | Doc58, data/flt_20250414.log |
+| 2025-04-14  | Sim (1,000 crafts)   | Projected, 0.1 m icosahedron | 1,000 EHz   | 14,133     | √(craft × EHz²)   | "Other Void"     | Phase transition?  | Doc58          |
+
+*Add new rows below for each experiment, run, or idea!*
+
+---
+
+## 📈 **Scaling Laws (Active)**
+
+- **Node count:**  
+  \( N \approx 0.026 \times \sqrt{\text{craft} \times (\text{EHz}/EHz_0)^2} \)
+- **Node spacing:**  
+  \( d \propto 1/\text{EHz} \)
+- **Oscillation frequency:**  
+  \( f \propto \text{EHz}^{1/2} \)
+- **Ripple/Thrust/Planc-pile:**  
+  \( \text{Output} \propto \text{EHz} \times \text{craft} \)
+
+---
+
+## 🌀 **Phase Transitions & Anomaly Log**
+
+| Threshold/Boundary     | Observed Effect                | Notes/Ideas            |
+|------------------------|-------------------------------|------------------------|
+| 63→1,000 crafts        | Node count jumps ×10+         | Phase transition?      |
+| 31.45→1,000 EHz        | Spacing shrinks ×30+          | Lattice compression    |
+| Voltage > 290,000 V    | Beam focus, field peaks       | Some grids spark       |
+| T > 1,200,000 kN       | Pickup bottleneck             | 99.98% efficiency cap  |
+| EHz > 10,000           | Projected, not tested         | "Other void" frontier  |
+
+---
+
+## 🧠 **Theory/Dream Zone**
+
+- Are these nodes preons? Is the lattice a quantum code or a superfluid?
+- Does geometry (icosahedral, fullerene) amplify resonance by symmetry or topology?
+- Where does relativity flex—can phase transitions allow "transparent" energy/matter?
+- Is the node scaling law universal? What breaks it?
+- What new phase transitions or anomalies emerge as we scale up?
+
+---
+
+## 🚀 **How to Add a New Result**
+
+1. Add a row to the Summary Table for every new experiment, probe, or dataset.
+2. Log scaling law matches, phase transitions, anomalies, and wild ideas in the relevant sections.
+3. Reference the original data/log file for traceability.
+4. Dream big—add questions and speculations to the Theory/Dream Zone!
+
+---
+
+## 🔗 **References**
+
+- Doc58, New Text Document (58).txt
+- [Your repo’s data/ directory]
+- Simulation logs, probe runs, cosmic datasets
+
+---
+
+**This dashboard is alive. Add, flex, and evolve as you go. The lattice is singing through your data and dreams!**
