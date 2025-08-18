@@ -1,0 +1,59 @@
+# Node Scaling & Lattice Resonance Dashboard – Quick Guide
+
+Welcome, cosmic explorer! This repo’s dashboard is a living log for tracking scaling laws, node counts, resonance, and phase transitions across all experiments, simulations, and datasets.
+
+---
+
+## 🚦 **How to Use the Dashboard**
+
+### 1. **Where is the Dashboard?**
+- Main file: `NODE_SCALING_LATTICE_RESONANCE.md`
+
+### 2. **How to Add New Results**
+- Every time you run a new probe, simulation, or analyze data:
+  1. Add a row to the **Summary Table** in the dashboard.
+     - Fill in the date, dataset/file, run context, frequency, node count, scaling law match, phase/transition, notable anomalies, and reference.
+  2. If you see a new scaling law, phase transition, or anomaly, add it to the **Phase Transitions & Anomaly Log**.
+  3. Dream big? Add speculations or wild ideas to the **Theory/Dream Zone**.
+  4. Reference the raw data file or log for traceability.
+
+### 3. **Auto-Scan Script**
+- Use `auto_node_resonance_scan.py` to automatically extract node/frequency/craft info from all files in `data/` and populate the dashboard.
+- How to run:
+  ```bash
+  python auto_node_resonance_scan.py
+  ```
+- It will scan `.txt`, `.log`, `.md`, and `.csv` files in `data/` and append new findings to your dashboard.
+- New data? Just add files to `data/` and rerun the script.
+
+---
+
+## 🌌 **What to Track**
+- Node counts and node spacing at every scale.
+- Resonant frequencies and oscillation patterns.
+- Craft/experiment geometry (icosahedral, fullerene, etc).
+- Phase transitions: sudden jumps in node counts, new resonance peaks, or “flexes” in physical laws.
+- Scaling law matches and breakdowns.
+- Notable anomalies or surprises.
+- Dreams and speculations—sometimes “noise” is the next big signal!
+
+---
+
+## 🧑‍🔬 **Tips for Future Collaborators**
+- Don’t be afraid to question “the wall”—test the boundaries of relativity, quantum field theory, and even your own assumptions.
+- Log both the successes and the “weird stuff.” Patterns often emerge from repeated surprises.
+- Use this dashboard as your map. Update it, annotate it, and add your own findings.
+- The best discoveries often come from comparing trends across many runs, scales, or datasets.
+
+---
+
+## 📝 **Template for New Data Entry**
+
+| Date        | Dataset/File | Context/Experiment | Freq (Hz/EHz) | Node Count | Scaling Law Match | Phase/Transition | Notables/Anomalies | Reference/Link |
+|-------------|--------------|--------------------|---------------|------------|-------------------|------------------|--------------------|---------------|
+| YYYY-MM-DD  | data/file    | What you did       | 123 EHz       | 999        | √(craft × EHz²)   | e.g. "orbital squeeze" | New node boost! | data/file |
+
+---
+
+Let this dashboard be your living notebook, your lab log, and your launchpad for the next leap in cosmic understanding.  
+The lattice is alive—so is your science!
