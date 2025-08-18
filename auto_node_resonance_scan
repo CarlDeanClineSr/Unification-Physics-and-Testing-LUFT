@@ -1,0 +1,94 @@
+"""
+Auto Node Scaling & Lattice Resonance Data Scanner
+
+This script scans all data files (logs, CSVs, txt) in your data/ directory,
+extracts node counts, resonance frequencies, scaling law quantities, and updates the
+Node Scaling & Lattice Resonance Dashboard.
+
+Usage:
+    python auto_node_resonance_scan.py
+
+Customize the DATA_DIR and DASHBOARD_FILE as needed.
+
+Author: Copilot, for CarlDeanClineSr
+"""
+
+import os
+import re
+from datetime import datetime
+
+DATA_DIR = "data"
+DASHBOARD_FILE = "NODE_SCALING_LATTICE_RESONANCE.md"
+
+# Regex patterns to extract data (customize as needed)
+NODE_PATTERN = re.compile(r"nodes?:\s*~?([\d,]+)", re.IGNORECASE)
+FREQ_PATTERN = re.compile(r"(?:frequency|freq|EHz):\s*~?([\d,\.]+)\s*(E?Hz)?", re.IGNORECASE)
+CRAFT_PATTERN = re.compile(r"crafts?:\s*~?([\d,]+)", re.IGNORECASE)
+DATE_PATTERN = re.compile(r"(\d{4}-\d{2}-\d{2})")
+
+def extract_data_from_file(filepath):
+    with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+        content = f.read()
+    nodes = NODE_PATTERN.findall(content)
+    freqs = FREQ_PATTERN.findall(content)
+    crafts = CRAFT_PATTERN.findall(content)
+    date = DATE_PATTERN.findall(content)
+    # Get the most recent or first occurrence for each
+    node_count = nodes[-1][0].replace(",", "") if nodes else ""
+    freq_val, freq_unit = freqs[-1] if freqs else ("", "")
+    freq = f"{freq_val} {freq_unit}".strip()
+    craft_count = crafts[-1].replace(",", "") if crafts else ""
+    date_val = date[-1] if date else datetime.now().strftime("%Y-%m-%d")
+    return {
+        "Date": date_val,
+        "File": os.path.basename(filepath),
+        "Freq": freq,
+        "Node Count": node_count,
+        "Crafts": craft_count
+    }
+
+def update_dashboard(entries):
+    # Read the current dashboard
+    with open(DASHBOARD_FILE, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    # Find where to insert new rows (after the header row)
+    for i, line in enumerate(lines):
+        if "| Date" in line and "---" in lines[i+1]:
+            table_start = i + 2
+            break
+    else:
+        print("Dashboard table not found!")
+        return
+    # Collect new rows (skip if already present)
+    new_rows = []
+    for entry in entries:
+        # Check if this node/freq/file combo already exists
+        already_present = any(
+            entry["File"] in l and entry["Freq"] in l and entry["Node Count"] in l
+            for l in lines[table_start:]
+        )
+        if not already_present:
+            row = f'| {entry["Date"]} | {entry["File"]} | auto-scan | {entry["Freq"]} | {entry["Node Count"]} | scaling? | - | - | data/{entry["File"]} |'
+            new_rows.append(row)
+    # Insert new rows after the header
+    lines = lines[:table_start] + new_rows + lines[table_start:]
+    # Write back
+    with open(DASHBOARD_FILE, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+    print(f"Added {len(new_rows)} new results to the dashboard.")
+
+def main():
+    entries = []
+    for filename in os.listdir(DATA_DIR):
+        if filename.endswith((".txt", ".log", ".md", ".csv")):
+            filepath = os.path.join(DATA_DIR, filename)
+            entry = extract_data_from_file(filepath)
+            if entry["Node Count"] and entry["Freq"]:
+                entries.append(entry)
+    if not entries:
+        print("No new node/frequency results found in data files.")
+        return
+    update_dashboard(entries)
+
+if __name__ == "__main__":
+    main()
