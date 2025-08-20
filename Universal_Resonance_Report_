@@ -1,0 +1,40 @@
+# Universal Resonance Search Report — LUFT Project
+
+**Batch Date:** YYYY-MM-DD  
+**Data Sources:** (e.g., SDR .wav files, SQUID, cosmic data, etc.)  
+**Analysis Pipeline:** `universal_resonance_search.py`  
+**Target LUFT Frequencies:** 7468 Hz, 7467.779 Hz, 7464 Hz, 7460 Hz, 7456 Hz, 7452 Hz, 0.050 Hz
+
+---
+
+## Summary Table
+
+| File | Peak Frequency (Hz) | LUFT Match | Δ (Hz) | Amplitude | Description |
+|------|---------------------|------------|--------|-----------|-------------|
+| ...  | ...                 | ...        | ...    | ...       | ...         |
+
+---
+
+## Key Findings
+
+- LUFT resonance candidates (Δ < 10 Hz) were detected in: (list files)
+- Most significant match: (file, freq, amplitude)
+- No significant resonance in: (list files, if any)
+
+---
+
+## Example Spectrograms
+
+![Example Spectrogram](RESULTS_DIR/filename.png)
+
+---
+
+## Next Steps
+
+- Add new data and rerun the script.
+- Compare findings across SDR, SQUID, CERN, and LIGO data.
+- Document updates in the AI_Audit_and_Research_Status_Report.md.
+
+---
+
+*LUFT: Testing reality’s universal frequencies, one dataset at a time.*
