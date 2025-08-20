@@ -1,0 +1,85 @@
+import os
+import librosa
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Define your target LUFT frequencies
+LUFT_RESONANCES = [7468, 7467.779, 7464, 7460, 7456, 7452, 0.050]
+
+RESULTS_DIR = "universal_resonance_results"
+os.makedirs(RESULTS_DIR, exist_ok=True)
+
+def find_wav_files(root="."):
+    wav_files = []
+    for dirpath, _, filenames in os.walk(root):
+        for f in filenames:
+            if f.lower().endswith(".wav"):
+                wav_files.append(os.path.join(dirpath, f))
+    return wav_files
+
+def analyze_file(wav_path):
+    y, sr = librosa.load(wav_path, sr=None)
+    D = np.abs(librosa.stft(y))
+    freqs = librosa.fft_frequencies(sr=sr)
+    mean_spectrum = np.mean(D, axis=1)
+    peak_indices = np.argpartition(mean_spectrum, -10)[-10:]
+    peak_freqs = freqs[peak_indices]
+    peak_amps = mean_spectrum[peak_indices]
+
+    annotations = []
+    for f, amp in zip(peak_freqs, peak_amps):
+        luft_match = min(LUFT_RESONANCES, key=lambda x: abs(x-f))
+        luft_delta = abs(luft_match - f)
+        annotations.append({
+            "freq": f,
+            "amplitude": amp,
+            "LUFT_match": luft_match,
+            "delta": luft_delta,
+            "description": ("LUFT resonance candidate" if luft_delta < 10 else "")
+        })
+
+    # Save spectrogram
+    plt.figure(figsize=(10, 4))
+    plt.specgram(y, NFFT=2048, Fs=sr, noverlap=512, cmap='magma')
+    plt.title(f"Spectrogram: {os.path.basename(wav_path)}")
+    plt.xlabel("Time (s)")
+    plt.ylabel("Frequency (Hz)")
+    plt.colorbar(label="Intensity (dB)")
+    plot_path = os.path.join(RESULTS_DIR, os.path.basename(wav_path) + ".png")
+    plt.savefig(plot_path)
+    plt.close()
+    
+    # Save annotation CSV
+    df = pd.DataFrame(annotations)
+    table_path = os.path.join(RESULTS_DIR, os.path.basename(wav_path) + ".csv")
+    df.to_csv(table_path, index=False)
+    
+    # Markdown summary
+    md = f"# Universal Resonance Search for {os.path.basename(wav_path)}\n\n"
+    md += f"**Sample rate:** {sr} Hz\n\n"
+    md += f"![Spectrogram]({os.path.basename(plot_path)})\n\n"
+    md += "## LUFT Resonance Matches\n\n"
+    md += df.to_markdown(index=False)
+    md_path = os.path.join(RESULTS_DIR, os.path.basename(wav_path) + ".md")
+    with open(md_path, "w") as f_md:
+        f_md.write(md)
+    return annotations
+
+def main():
+    wav_files = find_wav_files(".")
+    all_results = []
+    for wav_path in wav_files:
+        print(f"Analyzing {wav_path}...")
+        annotations = analyze_file(wav_path)
+        for ann in annotations:
+            ann['file'] = os.path.basename(wav_path)
+            all_results.append(ann)
+    # Aggregate summary
+    all_df = pd.DataFrame(all_results)
+    agg_csv = os.path.join(RESULTS_DIR, "universal_resonance_summary.csv")
+    all_df.to_csv(agg_csv, index=False)
+    print("Universal resonance analysis complete. See:", RESULTS_DIR)
+
+if __name__ == "__main__":
+    main()
