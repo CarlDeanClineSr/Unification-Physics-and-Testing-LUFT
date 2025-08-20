@@ -1,0 +1,50 @@
+"""
+LUFT Thread Knowledge Miner
+Scans thread files for tagged sections, equations, definitions, and open questions.
+Outputs Markdown summaries for indexing and updating project dashboards.
+"""
+
+import re
+from pathlib import Path
+
+thread_file = "pasted.txt"  # Update as needed
+output_index = "LUFT_THREAD_INDEX.md"
+output_equations = "LUFT_KEY_EQUATIONS.md"
+output_dashboard = "LUFT_PROGRESS_DASHBOARD.md"
+
+def extract_sections(file_path):
+    tags = ["[MATH]", "[EXPERIMENT]", "[THEORY]", "[QUESTION]", "[PROGRESS]"]
+    sections = {tag: [] for tag in tags}
+    with open(file_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+        for i, line in enumerate(lines):
+            for tag in tags:
+                if tag in line:
+                    sections[tag].append((i+1, line.strip()))
+    return sections
+
+def extract_equations(file_path):
+    # Find LaTeX or inline equations
+    eqn_pat = re.compile(r"\$.*?\$|\\\[.*?\\\]|[A-Za-z0-9_]+\s*=\s*[\d\w\+\-\*/\^\(\)\.]+")
+    eqs = []
+    with open(file_path, "r", encoding="utf-8") as f:
+        for i, line in enumerate(f, 1):
+            if eqn_pat.search(line):
+                eqs.append((i, line.strip()))
+    return eqs
+
+# Add more functions for open questions, protocols, etc.
+
+if __name__ == "__main__":
+    # Example usage: print section summaries
+    sections = extract_sections(thread_file)
+    for tag, entries in sections.items():
+        print(f"{tag} ({len(entries)} entries)")
+        for ln, txt in entries[:3]:  # Show up to 3 per tag
+            print(f"  Line {ln}: {txt}")
+    # Print equations found
+    eqs = extract_equations(thread_file)
+    print(f"\nEquations found: {len(eqs)}")
+    for ln, eq in eqs[:5]:
+        print(f"  Line {ln}: {eq}")
+    # Extend as needed to output Markdown summaries or update index files
