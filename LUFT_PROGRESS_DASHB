@@ -1,0 +1,36 @@
+# LUFT Project — Summary Dashboard
+
+A living summary of what’s been built, tested, and discovered. Use this for at-a-glance status and to guide next steps.
+
+---
+
+## Key Achievements
+
+| Date       | Experiment/Analysis              | Result                    | Frequency/Anomaly | Note/Link                         |
+|------------|----------------------------------|---------------------------|-------------------|------------------------------------|
+| 2025-08-18 | WinSat Lattice Scan              | Phase jump detected       | 7,468 Hz          | [LUFT_Findings.md](data/...)       |
+| 2025-08-17 | Voyager/Starlink/SQUID X-corr    | Lattice current mapped    | 7,468 Hz          | [voyager_lattice_crosscorr.md](...)|
+| 2025-08-16 | CERN Data LUFT Auto-Scan         | Frequency spike, Δt >1ns  | 7,468, 1,420 Hz   | [LUFT_Findings.md](data/...)       |
+| ...        | ...                              | ...                       | ...               | ...                                |
+
+---
+
+## Current Focus
+
+- Expanding frequency search range (beyond 7,468 Hz, including harmonics and subharmonics)
+- Real-time anomaly detection in new satellite/WinSat data
+- Cross-correlation between lab, cosmic, and simulation datasets
+- Indexing and integrating all “preon state” and lattice parameter definitions
+
+---
+
+## Open Questions
+
+- What triggers phase transitions or “fractures” in the lattice?
+- Are there universal activation thresholds for nodes/pulses across scales?
+- Can the same resonance laws explain both lab and cosmic anomalies?
+- How do preon substates (A/B/C) manifest in different field environments?
+
+---
+
+> *Update the dashboard as new results, experiments, or theoretical advances occur. Use links to jump to detailed logs or data files.*
