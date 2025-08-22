@@ -1,0 +1,56 @@
+name: Self-Organize LUFT Repo
+
+on:
+  push:
+    branches:
+      - main  # change if your default branch is different
+  workflow_dispatch:  # allows manual run from GitHub UI
+  schedule:
+    - cron: '0 7 * * 1' # Every Monday at 07:00 UTC
+
+jobs:
+  organize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install googletrans==4.0.0rc1  # for translation
+
+      - name: Generate repo manifest
+        run: python generate_repo_manifest.py
+
+      - name: Auto-index repository
+        run: python auto_index_repo.py
+
+      - name: Slugify and rename notes
+        run: python slugify_rename_notes.py
+
+      - name: Update README with manifest stats (EN/FR/RU/JA)
+        run: python update_readme_bilingual.py
+
+      - name: Generate index diff log
+        run: python index_diff_log.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "LUFT-AutoBot"
+          git config --global user.email "actions@github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto-update: manifest, index, bilingual README, and diff log [skip ci]"
+            git push
+          fi
